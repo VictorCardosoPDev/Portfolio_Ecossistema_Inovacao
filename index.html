@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecossistema de Inovação | IA, Saúde e Meio Ambiente</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo"><i class="fas fa-leaf"></i> <span>Núcleo de Projetos Socioambientais</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#missao">Missão</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#vantagens">Vantagens</a></li>
+                <li><a href="#vantagens">Incubadoras</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>
+                <span id="changing-text">Tecnologia</span>
+                <span class="white-text">pela</span>
+                <span class="green-text">Sociedade</span>
+            </h1>
+            <p>Unindo tecnologia de ponta, saúde e preservação ambiental em um único ecossistema de inovação.</p>
+            <div class="hero-btns">
+                <a href="#projetos" class="btn">Nossas Soluções</a>
+                <a href="#vantagens" class="btn btn-outline">Seja um Investidor</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="missao" class="mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-text">
+                    <span class="badge">NOSSO IMPACTO</span>
+                    <h2>Meio Ambiente</h2>
+                    <p>
+                        Atuamos na vanguarda da pesquisa científica para compreender e mitigar os impactos das <strong>enchentes de maio de 2024</strong> no Rio Grande do Sul.
+                        Nosso objetivo é estudar e catalogar as transformações ambientais e seus reflexos diretos na saúde coletiva,
+                        utilizando a tecnologia como ferramenta de diagnóstico e prevenção.
+                    </p>
+                    <p>
+                        Unimos a expertise acadêmica em levantamentos florísticos e monitoramento ecológico, informações de saúde e pacientes
+                        com o potencial disruptivo da<strong>Inteligência Artificial</strong> e a agilidade de um <strong>Hub de Incubadoras</strong>.
+                        Este ecossistema trabalha para preencher lacunas críticas de conhecimento em Unidades de Conservação,
+                        acelerando o desenvolvimento de soluções que protegem a biodiversidade e asseguram o bem-estar social diante de desafios climáticos.
+                    </p>
+                </div>
+
+                <div class="mission-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-database"></i></div>
+                        <div class="stat-info">
+                            <h3>+300</h3>
+                            <p>Espécies Registradas</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="stat-info">
+                            <h3>IA</h3>
+                            <p>Monitoramento Preditivo</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="stat-info">
+                            <h3>Incubadoras</h3>
+                            <p>HUB de Incubadoras</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <div class="stat-info">
+                            <h3>Saúde</h3>
+                            <p>Resiliência e Bem-estar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="projects bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Projetos Estratégicos</h2>
+            </div>
+            <div class="project-grid">
+                <div class="project-card" onclick="openModal('modalRestaurapa')">
+                    <div class="icon-box"><i class="fas fa-leaf"></i></div>
+                    <h3>RestaurAPA: Bioma Pampa</h3>
+                    <p>Restauração ecológica de campos nativos do bioma Pampa</p>
+                    <div class="tags">
+                        <span>Ecologia de ecossistemas</span>
+                        <span>Restauração Ecológica</span>
+                        <span>Conservação do bioma Pampa</span>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openModal('modalItapua')">
+                    <div class="icon-box"><i class="fas fa-tree"></i></div>
+                    <h3>Projeto Itapuã</h3>
+                    <p>Pesquisa e conservação da biodiversidade em áreas protegidas do sul do Brasil</p>
+                    <div class="tags">
+                        <span>Pesquisa</span>
+                        <span>Conservação da biodiversidade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalRestaurapa" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalRestaurapa')">&times;</span>
+            <h2><i class="fas fa-leaf"></i> Projeto RestaurAPA</h2>
+            <div class="modal-body">
+                <p>Desenvolver e testar estratégias de restauração ecológica de campos invadidos por <i>capim-annoni (Eragrostis plana)</i>, conciliando conservação da biodiversidade com sistemas de pecuária sustentável.</p>
+                <br>
+                <div class="info-block">
+                    <h4>Contexto científico</h4>
+                    <p>Os campos do bioma Pampa apresentam alta diversidade de gramíneas e plantas herbáceas, mas sofrem degradação causada por mudanças no uso da terra e pela invasão de espécies exóticas. Uma das invasoras mais problemáticas é o capim-annoni, identificado cientificamente como <i>Eragrostis plana</i>. Essa gramínea africana reduz a qualidade das pastagens, diminui a biodiversidade e altera a dinâmica ecológica dos campos nativos.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Coordenação científica do projeto</h4>
+                    <p>Pesquisadores da universidade lideraram o planejamento metodológico, a articulação institucional e o monitoramento das atividades de restauração.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Pesquisa Ecológica</h4>
+                    <p>Equipes acadêmicas conduziram levantamentos florísticos que registraram <strong>mais de 300 espécies vegetais</strong> nos campos da APA do Ibirapuitã, demonstrando a alta biodiversidade do bioma Pampa.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Impacto científico e socioambiental</h4>
+                    <p>O projeto mostrou que a restauração de campos nativos pode ocorrer simultaneamente à produção pecuária. Essa abordagem reforçou um conceito da ecologia aplicada: certos sistemas produtivos podem funcionar como aliados da conservação, desde que o manejo respeite os processos ecológicos do ecossistema.</p>
+                </div>
+
+                <div class="modal-info-grid">
+                    <div class="info-block">
+                        <h4>Instituições</h4>
+                        <ul>
+                            <li>Universidade La Salle</li>
+                            <li>Universidade Federal do Rio Grande do Sul</li>
+                            <li>Emater/RS-Ascar</li>
+                            <li>Fundo Brasileiro para a Biodiversidade</li>
+                            <li>Global Environment Facility</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Contribuição do Projeto:</h4>
+                        <ul>
+                            <li>Pesquisas sobre restauração de campos naturais</li>
+                            <li>Estudos sobre dinâmica de invasões biológicas</li>
+                            <li>Estratégias de manejo sustentável em sistemas pastorais</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Resultados Principais</h4>
+                        <ul>
+                            <li>Registro de 329 espécies vegetais pertencentes a 50 famílias botânicas nos campos da APA</li>
+                            <li>Implantação de práticas de manejo sustentável em propriedades rurais</li>
+                            <li>Redução da dominância de capim-annoni em áreas manejadas</li>
+                            <li>Aumento da diversidade de espécies nativas em áreas restauradas</li>
+                            <li>Capacitação de produtores rurais em práticas de manejo ecológico</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Produtos Gerados</h4>
+                        <ul>
+                            <li>Relatórios técnicos de restauração ecológica</li>
+                            <li>Banco de dados florístico da APA do Ibirapuitã</li>
+                            <li>Capacitação de produtores e técnicos rurais</li>
+                            <li>Material técnico sobre manejo sustentável de campos</li>
+                        </ul>
+                    </div>
+                    <div class="info-block full-width">
+                        <h4>Metodologia</h4>
+                        <div class="methodology-flex">
+                            <div>
+                                <h5>Diagnóstico ecológico</h5>
+                                <ul>
+                                    <li>levantamento florístico</li>
+                                    <li>avaliação da cobertura vegetal</li>
+                                    <li>monitoramento de espécies invasoras</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Manejo experimental</h5>
+                                <ul>
+                                    <li>controle do capim-annoni</li>
+                                    <li>sobressemeadura de espécies nativas e forrageiras</li>
+                                    <li>manejo de pastagem com pastoreio rotativo</li>
+                                    <li>regeneração natural assistida</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Monitoramento</h5>
+                                <ul>
+                                    <li>diversidade de espécies</li>
+                                    <li>cobertura vegetal</li>
+                                    <li>produtividade das pastagens</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalItapua" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalItapua')">&times;</span>
+            <h2><i class="fas fa-tree"></i> Projeto Itapuã</h2>
+            <div class="modal-body">
+                <p>Iniciativa de pesquisa, extensão e educação ambiental voltada ao estudo e à conservação da biodiversidade no Parque Estadual de Itapuã, integrando formação acadêmica e preservação de ecossistemas vitais.</p>
+                <br>
+                <div class="info-block">
+                    <h4>Contexto Científico</h4>
+                    <p>Unidades de conservação frequentemente possuem lacunas de conhecimento sobre sua biodiversidade. No caso de Itapuã, que abriga remanescentes de Mata Atlântica, campos, dunas e sistemas lacustres, a produção de dados científicos é essencial para elaborar estratégias eficientes de manejo e conservação de longo prazo.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Contribuição da Universidade La Salle</h4>
+                    <p>A universidade possui papel central na execução científica, proporcionando experiência prática a estudantes em atividades de campo, inventários biológicos e métodos de pesquisa em ecologia, além de promover a aproximação entre a ciência e a sociedade através da extensão.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Área de atuação</h4>
+                    <p>O projeto é realizado no Parque Estadual de Itapuã, unidade de conservação criada em 1973 e localizada em Viamão, na região metropolitana de Porto Alegre. O parque possui cerca de 5.500 hectares e abriga uma grande diversidade de ambientes naturais.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Objetivo Estratégico</h4>
+                    <p>Produzir conhecimento científico sobre os processos ecológicos do Parque, promovendo inventários biológicos, monitoramento de populações e ações de educação ambiental que sensibilizem a comunidade sobre a importância da área.</p>
+                </div>
+
+                <div class="modal-info-grid">
+                    <div class="info-block">
+                        <h4>Instituições Envolvidas</h4>
+                        <ul>
+                            <li>Universidade La Salle</li>
+                            <li>Universidade Federal do Rio Grande do Sul</li>
+                            <li>SEMA/RS e FEPAM</li>
+                            <li>Parque Estadual de Itapuã</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Área de Atuação (5.500 ha)</h4>
+                        <ul>
+                            <li>Remanescentes de Mata Atlântica</li>
+                            <li>Campos naturais e dunas</li>
+                            <li>Formações rochosas graníticas</li>
+                            <li>Praias lacustres da Lagoa dos Patos</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Resultados Principais</h4>
+                        <ul>
+                            <li>Ampliação do conhecimento sobre a biodiversidade local</li>
+                            <li>Formação prática de novos pesquisadores e estudantes</li>
+                            <li>Produção de dados científicos para a gestão do parque</li>
+                            <li>Desenvolvimento de materiais de divulgação científica</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Impacto Científico e Socioambiental</h4>
+                        <ul>
+                            <li>Fortalecimento das UCs como laboratórios naturais</li>
+                            <li>Apoio direto à gestão ambiental pública</li>
+                            <li>Sensibilização da sociedade para a conservação</li>
+                        </ul>
+                    </div>
+                    <div class="info-block full-width">
+                        <h4>Metodologia Científica</h4>
+                        <div class="methodology-flex">
+                            <div>
+                                <h5>Inventários</h5>
+                                <ul>
+                                    <li>Levantamento de fauna e flora</li>
+                                    <li>Identificação de espécies</li>
+                                    <li>Bases de dados biológicos</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Monitoramento</h5>
+                                <ul>
+                                    <li>Acompanhamento de populações</li>
+                                    <li>Observação de interações</li>
+                                    <li>Análise de mudanças na biodiversidade</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Educação Ambiental</h5>
+                                <ul>
+                                    <li>Visitas guiadas e extensão</li>
+                                    <li>Produção de material educativo</li>
+                                    <li>Divulgação científica</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="vantagens" class="projects">
+        <div class="container">
+            <h2>Por que investir no projeto?</h2>
+            <div class="project-grid">
+                <div class="project-card highlight-card">
+                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                    <h3>Valor ESG e Branding</h3>
+                    <p>Posicione sua marca como líder em inovação ambiental e saúde global perante investidores e clientes.</p>
+                </div>
+                <div class="project-card highlight-card">
+                    <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Benefícios Fiscais</h3>
+                    <p>Oportunidade de deduções através de leis de incentivo à pesquisa e desenvolvimento tecnológico.</p>
+                </div>
+                <div class="project-card highlight-card">
+                    <div class="icon-box"><i class="fas fa-rocket"></i></div>
+                    <h3>Acesso à Inovação</h3>
+                    <p>Prioridade em licenciamentos e propriedade intelectual gerada pela equipe de pesquisa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Vamos construir o futuro?</h2>
+            <p>Entre em contato para agendar uma reunião técnica com nossa coordenação.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#"><i class="fa-solid fa-building-columns"></i> Instituição</a>
+                <a href="mailto:contato@ecotech.edu.br"><i class="fas fa-envelope"></i> E-mail</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ecossistema de Inovação</p>
+    </footer>
+
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>

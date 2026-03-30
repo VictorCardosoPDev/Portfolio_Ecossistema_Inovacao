@@ -1,0 +1,386 @@
+/* ==========================================================================
+   1. VARIÁVEIS E RESET
+   ========================================================================== */
+:root {
+    
+    --primary-green: #2d6a4f;
+    --accent-green: #74c69d;
+    --dynamic-green: #4ade80;
+    --earth-brown: #403d39;
+    
+    
+    --bg-color: #f8fafc;
+    --white: #ffffff;
+    --text-main: #2d3436;
+    --text-muted: #64748b;
+    --text-dark: #1e293b;
+    
+    
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+    --shadow-md: 0 15px 30px rgba(45, 106, 79, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. COMPONENTES GLOBAIS (Reutilizáveis)
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 8%;
+}
+
+.section-padding {
+    padding: 100px 8%;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background: var(--primary-green);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--accent-green);
+    transform: scale(1.05);
+}
+
+.badge {
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   3. HEADER & NAVEGAÇÃO
+   ========================================================================== */
+header {
+    padding: 1rem 8%;
+    position: fixed;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent-green);
+    
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--earth-brown);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-green);
+}
+
+/* ==========================================================================
+   4. SEÇÃO HERO (Destaque Inicial)
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 0 8%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+#changing-text, .white-text {
+    color: var(--white);
+    display: inline-block;
+    transition: all 0.5s ease-in-out;
+}
+
+.green-text {
+    color: var(--dynamic-green);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   5. SEÇÃO MISSÃO
+   ========================================================================== */
+.mission {
+    padding: 100px 8%;
+    background: var(--white);
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.mission-text h2 {
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mission-text p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Cards de Estatística da Missão */
+.mission-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: var(--bg-color);
+    border-radius: 15px;
+    border-left: 5px solid var(--primary-green);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateX(10px);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: var(--primary-green);
+}
+
+.stat-info h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.stat-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   6. SEÇÃO PROJETOS
+   ========================================================================== */
+.projects {
+    padding: 100px 8%;
+    background: var(--bg-color);
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    cursor: pointer;
+}
+
+.project-card {
+    padding: 2.5rem;
+    border-radius: 20px;
+    background: var(--white);
+    border: 1px solid #e2ece7;
+    transition: 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+}
+
+.tags {
+    margin-top: 1.5rem;
+}
+
+.tags span {
+    font-size: 0.75rem;
+    background: #2d6a4f;
+    color: white ;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+/* Estilo do Modal (Fundo) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 70%;
+    max-width: 800px;
+    position: relative;
+    animation: modalFade 0.4s ease;
+    max-height: 85vh; 
+    overflow-y: auto; 
+}
+
+@keyframes modalFade {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    right: 25px; top: 15px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal-header h2 { color: var(--primary-green); margin-bottom: 10px; }
+.modal-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.modal-info-grid ul { list-style: none; padding: 0; }
+.modal-info-grid li::before { content: "• "; color: var(--primary-green); font-weight: bold; }
+/* ==========================================================================
+   7. SEÇÃO CONTATO
+   ========================================================================== */
+.contact {
+    padding: 80px 8%;
+    text-align: center;
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+.contact h2 {
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: var(--white);
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+}
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+    footer{
+        text-align: center;
+        background-color: #2d6a4f;
+        color: white;
+    }
+/* ==========================================================================
+   9. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 968px) {
+    .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .nav-links {
+        display: none; 
+    }
+}
