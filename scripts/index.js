@@ -1,61 +1,156 @@
-const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll(".nav-links a");
+(function () {
+    // Variáveis de referência no DOM
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute("id");
-                }
-            });
+    // Texto dinâmico da seção hero
+    const textElement = document.getElementById('changing-text');
+    const words = ['Tecnologia', 'Saúde', 'Meio Ambiente'];
+    let currentIndex = 0;
+    let textIntervalId = null;
 
-            navLinks.forEach((a) => {
-                a.classList.remove("active");
-                if (a.getAttribute("href").includes(current)) {
-                    a.classList.add("active");
-                }
+    /**
+     * Atualiza o link ativo do menu de navegação em função da seção visível.
+     * Chamado no evento de scroll (scroll spy)
+     */
+
+    function setActiveNav() {
+        let currentSectionId = '';
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= sectionTop - 150) {
+                currentSectionId = section.id;
+            }
+        });
+
+        navLinks.forEach((link) => {
+            const href = link.getAttribute('href');
+            link.classList.toggle('active', href === `#${currentSectionId}`);
+        });
+    }
+
+    /**
+     * Inicializa o scroll spy para atualizar estado de menu conforme rolagem.
+     */
+    function initScrollSpy() {
+        setActiveNav();
+        window.addEventListener('scroll', setActiveNav);
+    }
+
+    /**
+     * Alterna o texto do banner hero com transição suave (fade + movimento vertical).
+     */
+    function updateHeroText() {
+        if (!textElement) return;
+
+        textElement.style.opacity = '0';
+        textElement.style.transform = 'translateY(5px)';
+
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % words.length;
+            textElement.textContent = words[currentIndex];
+            textElement.style.opacity = '1';
+            textElement.style.transform = 'translateY(0)';
+        }, 500);
+    }
+
+    /**
+     * Inicia o ciclo de troca de palavras no texto hero e adiciona comportamentos de pausa no hover.
+     */
+    function initHeroRotation() {
+        if (!textElement) return;
+
+        textIntervalId = setInterval(updateHeroText, 3000);
+
+        // pausa a animação ao focar no texto (opcional)
+        textElement.addEventListener('mouseover', () => clearInterval(textIntervalId));
+        textElement.addEventListener('mouseout', () => {
+            textIntervalId = setInterval(updateHeroText, 3000);
+        });
+    }
+
+    /**
+     * Abre modal pelo id e bloqueia rolagem do corpo.
+     * @param {string} id - ID do elemento modal.
+     */
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    /**
+     * Fecha modal pelo id e restaura rolagem do corpo.
+     * @param {string} id - ID do elemento modal.
+     */
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function initModals() {
+        document.querySelectorAll('.project-card').forEach((card) => {
+            card.addEventListener('click', () => {
+                const targetId = card.dataset.modal;
+                if (targetId) openModal(targetId);
             });
         });
 
-const textElement = document.getElementById("changing-text");
-const words = ["Tecnologia", "Saúde", "Meio Ambiente"]; 
+        document.querySelectorAll('.close').forEach((btn) => {
+            btn.addEventListener('click', (event) => {
+                const modal = event.currentTarget.closest('.modal');
+                if (!modal) return;
+                closeModal(modal.id);
+            });
+        });
 
-let currentIndex = 0;
+        document.addEventListener('click', (event) => {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        });
+    }
 
-function updateText() {
-    
-    textElement.style.opacity = 0;
-    textElement.style.transform = "translateY(5px)";
+    function init() {
+        initScrollSpy();
+        initHeroRotation();
+        initModals();
+    }
 
-    setTimeout(() => {
-        // Troca apenas a palavra inicial
-        currentIndex = (currentIndex + 1) % words.length;
-        textElement.textContent = words[currentIndex];
+    document.addEventListener('DOMContentLoaded', init);
 
-        // Efeito de entrada
-        textElement.style.opacity = 1;
-        textElement.style.transform = "translateY(0)";
-    }, 500);
-}
+    // Expor funções globais para compatibilidade com atributos onclick existentes
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+})();
+function filterProjects(categoryId) {
+    // 1. Seleciona todos os botões e grupos de projetos
+    const buttons = document.querySelectorAll('.filter-btn');
+    const groups = document.querySelectorAll('.project-group');
 
-setInterval(updateText, 3000);
+    // 2. Remove a classe 'active' de todos (limpa o estado anterior)
+    buttons.forEach(btn => btn.classList.remove('active'));
+    groups.forEach(group => group.classList.remove('active'));
 
-// 2. Lógica dos Modais
-function openModal(id) {
-    document.getElementById(id).style.display = "block";
-    document.body.style.overflow = "hidden";
-}
+    // 3. Adiciona a classe 'active' no botão que foi clicado
+    // Usamos window.event para garantir compatibilidade se o 'event' não for passado
+    const clickedButton = window.event.currentTarget;
+    clickedButton.classList.add('active');
 
-function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-    document.body.style.overflow = "auto";
-}
-
-window.onclick = function(event) {
-    if (event.target.className === "modal") {
-        event.target.style.display = "none";
-        document.body.style.overflow = "auto";
+    // 4. Mostra o grupo correspondente ao ID passado
+    const targetGroup = document.getElementById(categoryId);
+    if (targetGroup) {
+        targetGroup.classList.add('active');
     }
 }

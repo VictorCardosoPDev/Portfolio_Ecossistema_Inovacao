@@ -39,7 +39,7 @@ body {
 }
 
 /* ==========================================================================
-   2. COMPONENTES GLOBAIS (Reutilizáveis)
+   2. COMPONENTES GLOBAIS
    ========================================================================== */
 .container {
     max-width: 1200px;
@@ -127,7 +127,7 @@ nav {
 }
 
 /* ==========================================================================
-   4. SEÇÃO HERO (Destaque Inicial)
+   4. SEÇÃO HERO 
    ========================================================================== */
 .hero {
     height: 100vh;
@@ -160,71 +160,124 @@ nav {
 }
 
 /* ==========================================================================
-   5. SEÇÃO MISSÃO
+   5. DNA HELIX SYSTEM - BIO-TECH DESIGN
    ========================================================================== */
-.mission {
-    padding: 100px 8%;
-    background: var(--white);
-}
 
-.mission-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
+.dna-viewport {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    perspective: 1200px;
 }
 
-.mission-text h2 {
-    font-size: 2.8rem;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+/* As fitas de DNA */
+.dna-strands {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    z-index: 0;
 }
 
-.mission-text p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 20px;
+.strand {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0.2;
 }
 
-/* Cards de Estatística da Missão */
-.mission-stats {
+.s1 { stroke: var(--primary-green); stroke-dasharray: 10; }
+.s2 { stroke: var(--accent-green); stroke-dasharray: 10; }
+
+/* O Centro (Tech Core) */
+.dna-core {
+    position: relative;
+    z-index: 10;
+    width: 130px;
+    height: 130px;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 0 30px rgba(45, 106, 79, 0.15);
+}
+
+.core-box {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-green);
+    border-radius: 50%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
-.stat-card {
+.core-box i { font-size: 1.8rem; margin-bottom: 5px; }
+.core-box span { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+
+/* Os Nodes (Elos da Hélice) */
+.dna-node {
+    position: absolute;
+    z-index: 5;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dna-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(45, 106, 79, 0.1);
+    padding: 12px 18px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 25px;
-    background: var(--bg-color);
-    border-radius: 15px;
-    border-left: 5px solid var(--primary-green);
-    transition: var(--transition);
+    gap: 12px;
+    width: 200px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-.stat-card:hover {
-    transform: translateX(10px);
+.dna-card i { color: var(--primary-green); font-size: 1.2rem; }
+.dna-info { display: flex; flex-direction: column; }
+.dna-info strong { font-size: 0.9rem; color: var(--text-dark); }
+.dna-info span { font-size: 0.75rem; color: var(--text-muted); }
+
+/* Posicionamento em X (DNA Style) */
+.node-top-left     { top: 15%; left: 0; }
+.node-top-right    { top: 15%; right: 0; }
+.node-bottom-left  { bottom: 15%; left: 0; }
+.node-bottom-right { bottom: 15%; right: 0; }
+
+/* Conexão Visual (Linhas horizontais) */
+.dna-node::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-green));
+    width: 60px;
+    top: 50%;
+    z-index: -1;
 }
 
-.stat-icon {
-    font-size: 2rem;
-    color: var(--primary-green);
+.node-top-left::before, .node-bottom-left::before { right: -50px; transform: rotate(5deg); }
+.node-top-right::before, .node-bottom-right::before { left: -50px; transform: rotate(-5deg); scaleX(-1); }
+
+/* Efeito de Hover */
+.dna-node:hover {
+    transform: scale(1.1) translateZ(50px);
+    z-index: 100;
 }
 
-.stat-info h3 {
-    font-size: 1.5rem;
-    color: var(--text-dark);
+.dna-node:hover .dna-card {
+    background: var(--white);
+    border-color: var(--primary-green);
+    box-shadow: 0 15px 30px rgba(45, 106, 79, 0.15);
 }
 
-.stat-info p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+.mission-text{
+    padding-bottom: 100px;
 }
-
 /* ==========================================================================
    6. SEÇÃO PROJETOS
    ========================================================================== */
@@ -307,7 +360,19 @@ nav {
     from { transform: translateY(-30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotateY(var(--rot, 40deg)); }
+    50% { transform: translateY(-10px) rotateY(var(--rot, 40deg)); }
+}
 
+.helix-item {
+    animation: float 4s ease-in-out infinite;
+}
+/* Define o delay para cada card subir em tempos diferentes */
+.helix-item:nth-child(2) { --rot: 40deg; animation-delay: 0s; }
+.helix-item:nth-child(3) { --rot: -40deg; animation-delay: 1s; }
+.helix-item:nth-child(4) { --rot: 20deg; animation-delay: 2s; }
+.helix-item:nth-child(5) { --rot: -20deg; animation-delay: 3s; }
 .close {
     position: absolute;
     right: 25px; top: 15px;
@@ -329,6 +394,50 @@ nav {
 
 .modal-info-grid ul { list-style: none; padding: 0; }
 .modal-info-grid li::before { content: "• "; color: var(--primary-green); font-weight: bold; }
+
+/* Botões de Filtro */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid var(--primary-green);
+    background: transparent;
+    color: var(--primary-green);
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+/* Transição dos Grupos */
+.project-group {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.project-group.active {
+    display: block;
+    animation: fadeInSlide 0.5s forwards;
+}
+
+@keyframes fadeInSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ==========================================================================
    7. SEÇÃO CONTATO
    ========================================================================== */
