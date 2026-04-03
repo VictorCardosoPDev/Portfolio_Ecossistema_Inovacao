@@ -92,15 +92,8 @@
         document.body.style.overflow = 'auto';
     }
 
-    function closeModal(id) {
-        const modal = document.getElementById(id);
-        if (!modal) return;
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
     function initModals() {
-        document.querySelectorAll('.project-card').forEach((card) => {
+        document.querySelectorAll('.project-card[data-modal]').forEach((card) => {
             card.addEventListener('click', () => {
                 const targetId = card.dataset.modal;
                 if (targetId) openModal(targetId);
@@ -122,10 +115,40 @@
         });
     }
 
+    function filterProjects(categoryId, activeButton = null) {
+        const buttons = document.querySelectorAll('.filter-btn');
+        const groups = document.querySelectorAll('.project-group');
+
+        buttons.forEach((btn) => btn.classList.remove('active'));
+        groups.forEach((group) => group.classList.remove('active'));
+
+        if (activeButton) {
+            activeButton.classList.add('active');
+        } else {
+            const fallbackButton = document.querySelector(`.filter-btn[data-filter="${categoryId}"]`);
+            if (fallbackButton) fallbackButton.classList.add('active');
+        }
+
+        const targetGroup = document.getElementById(categoryId);
+        if (targetGroup) {
+            targetGroup.classList.add('active');
+        }
+    }
+
+    function initProjectFilters() {
+        document.querySelectorAll('.filter-btn').forEach((button) => {
+            button.addEventListener('click', () => {
+                const filterId = button.dataset.filter;
+                if (filterId) filterProjects(filterId, button);
+            });
+        });
+    }
+
     function init() {
         initScrollSpy();
         initHeroRotation();
         initModals();
+        initProjectFilters();
     }
 
     document.addEventListener('DOMContentLoaded', init);
@@ -133,24 +156,5 @@
     // Expor funções globais para compatibilidade com atributos onclick existentes
     window.openModal = openModal;
     window.closeModal = closeModal;
+    window.filterProjects = filterProjects;
 })();
-function filterProjects(categoryId) {
-    // 1. Seleciona todos os botões e grupos de projetos
-    const buttons = document.querySelectorAll('.filter-btn');
-    const groups = document.querySelectorAll('.project-group');
-
-    // 2. Remove a classe 'active' de todos (limpa o estado anterior)
-    buttons.forEach(btn => btn.classList.remove('active'));
-    groups.forEach(group => group.classList.remove('active'));
-
-    // 3. Adiciona a classe 'active' no botão que foi clicado
-    // Usamos window.event para garantir compatibilidade se o 'event' não for passado
-    const clickedButton = window.event.currentTarget;
-    clickedButton.classList.add('active');
-
-    // 4. Mostra o grupo correspondente ao ID passado
-    const targetGroup = document.getElementById(categoryId);
-    if (targetGroup) {
-        targetGroup.classList.add('active');
-    }
-}

@@ -24,7 +24,7 @@
 
     <header>
         <nav>
-            <a href="#home" class="logo"><i class="fas fa-leaf"></i> <span>Ecossistema de Inovação</span></a>
+            <a href="#home" class="logo"><i class="fas fa-dna"></i> <span>Ecossistema de Inovação</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#missao">Missão</a></li>
@@ -79,8 +79,7 @@
                     <!-- O Núcleo Central -->
                     <div class="dna-core">
                         <div class="core-box">
-                            <i class="fas fa-microchip"></i>
-                            <span>Tech Core</span>
+                            <i class="fas fa-globe-americas"></i>
                         </div>
                     </div>
 
@@ -135,9 +134,9 @@
                 <h2>Projetos Estratégicos</h2>
                 <!-- Nova Feature: Filtros Adicionados -->
                 <div class="project-filters">
-                    <button class="filter-btn active" onclick="filterProjects('meio-ambiente')">Meio Ambiente</button>
-                    <button class="filter-btn" onclick="filterProjects('saude')">Saúde</button>
-                    <button class="filter-btn" onclick="filterProjects('tecnologia')">Inteligência Artificial</button>
+                    <button type="button" class="filter-btn active" data-filter="meio-ambiente">Meio Ambiente</button>
+                    <button type="button" class="filter-btn" data-filter="saude">Saúde</button>
+                    <button type="button" class="filter-btn" data-filter="tecnologia">Inteligência Artificial</button>
                 </div>
             </div>
 
@@ -146,7 +145,7 @@
                 <div class="project-group active" id="meio-ambiente">
                     <h1>Meio Ambiente</h1>
                     <div class="project-grid">
-                        <div class="project-card" onclick="openModal('modalRestaurapa')">
+                        <div class="project-card" data-modal="modalRestaurapa">
                             <div class="icon-box"><i class="fas fa-leaf"></i></div>
                             <h3>RestaurAPA: Bioma Pampa</h3>
                             <p>Restauração ecológica de campos nativos do bioma Pampa</p>
@@ -157,7 +156,7 @@
                             </div>
                         </div>
 
-                        <div class="project-card" onclick="openModal('modalItapua')">
+                        <div class="project-card" data-modal="modalItapua">
                             <div class="icon-box"><i class="fas fa-tree"></i></div>
                             <h3>Projeto Itapuã</h3>
                             <p>Pesquisa e conservação da biodiversidade em áreas protegidas do sul do Brasil</p>
@@ -173,23 +172,11 @@
                 <div class="project-group" id="saude">
                     <h1>Saúde</h1>
                     <div class="project-grid">
-                        <div class="project-card">
+                        <div class="project-card" data-modal="modalResiSaude">
                             <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
-                            <h3>Saúde Coletiva RS</h3>
+                            <h3>Projeto de Resiliência Climática: ResiSaúde</h3>
                             <p>Monitoramento epidemiológico pós-enchentes 2024.</p>
-                            <div class="tags"><span>Epidemiologia</span><span>Saúde Pública</span></div>
-                        </div>
-                        <div class="project-card">
-                            <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
-                            <h3>Saúde Coletiva RS</h3>
-                            <p>Monitoramento epidemiológico pós-enchentes 2024.</p>
-                            <div class="tags"><span>Epidemiologia</span><span>Saúde Pública</span></div>
-                        </div>
-                        <div class="project-card">
-                            <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
-                            <h3>Saúde Coletiva RS</h3>
-                            <p>Monitoramento epidemiológico pós-enchentes 2024.</p>
-                            <div class="tags"><span>Epidemiologia</span><span>Saúde Pública</span></div>
+                            <div class="tags"><span>Epidemiologia</span><span>Saúde Pública</span><span>Enchentes</span></div>
                         </div>
                     </div>
                 </div>
@@ -219,7 +206,7 @@
     <!-- Modais -->
     <div id="modalRestaurapa" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('modalRestaurapa')">&times;</span>
+            <span class="close">&times;</span>
             <h2><i class="fas fa-leaf"></i> Projeto RestaurAPA</h2>
             <div class="modal-body">
                 <p>Desenvolver e testar estratégias de restauração ecológica de campos invadidos por <i>capim-annoni (Eragrostis plana)</i>, conciliando conservação da biodiversidade com sistemas de pecuária sustentável.</p>
@@ -319,7 +306,7 @@
 
     <div id="modalItapua" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('modalItapua')">&times;</span>
+            <span class="close">&times;</span>
             <h2><i class="fas fa-tree"></i> Projeto Itapuã</h2>
             <div class="modal-body">
                 <p>Iniciativa de pesquisa, extensão e educação ambiental voltada ao estudo e à conservação da biodiversidade no Parque Estadual de Itapuã, integrando formação acadêmica e preservação de ecossistemas vitais.</p>
@@ -413,6 +400,96 @@
             </div>
         </div>
     </div>
+    <div id="modalResiSaude" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2><i class="fas fa-hospital-alt"></i> Projeto ResiSaúde</h2>
+        <div class="modal-body">
+            <p>Desenvolver um protocolo de avaliação de resiliência de serviços de saúde a eventos climáticos extremos, considerando o contexto local, o papel dos profissionais e o conhecimento tácito das equipes de linha de frente.</p>
+            <br>
+
+            <div class="info-block">
+                <h4>Contexto e Infraestruturas Críticas</h4>
+                <p>Eventos climáticos extremos, caracterizados por chuvas e temperaturas muito acima da média, impõem desafios severos às infraestruturas críticas de saúde. A resiliência é compreendida como a capacidade de adaptação desses sistemas antes, durante e após perturbações, permitindo a manutenção do funcionamento em condições adversas.</p>
+            </div>
+            <br>
+
+            <div class="info-block">
+                <h4>Impactos Diretos e Indiretos</h4>
+                <p>O projeto mapeia impactos diretos, como danos às instalações físicas e aumento de doenças, e impactos indiretos, que decorrem da dependência de infraestruturas essenciais como energia elétrica, água e cadeias de suprimento de medicamentos.</p>
+            </div>
+
+            <div class="modal-info-grid">
+                <div class="info-block">
+                    <h4>Instituições</h4>
+                    <ul>
+                        <li>Universidade Federal do Rio Grande do Sul (UFRGS)</li>
+                        <li>Serviços de Saúde Municipais e Estaduais</li>
+                    </ul>
+                </div>
+                
+                <div class="info-block">
+                    <h4>Áreas de Estudo (RS)</h4>
+                    <ul>
+                        <li>Vale do Taquari (Lajeado, Estrela, Roca Sales, Arroio do Meio)</li>
+                        <li>Região Metropolitana (Porto Alegre e Canoas)</li>
+                        <li>Região Central (Santa Maria)</li>
+                    </ul>
+                </div>
+
+                <div class="info-block">
+                    <h4>Objetivos Secundários</h4>
+                    <ul>
+                        <li>Avaliar a resiliência climática em regiões críticas do RS</li>
+                        <li>Identificar fatores organizacionais que influenciam o desempenho resiliente</li>
+                        <li>Desenvolver diretrizes para políticas públicas e legislações</li>
+                    </ul>
+                </div>
+
+                <div class="info-block">
+                    <h4>Resultados e Impacto</h4>
+                    <ul>
+                        <li>Criação do Banco de Práticas Resilientes (Boas e más práticas)</li>
+                        <li>Protocolo validado para aplicação em outras infraestruturas de saúde</li>
+                        <li>Fortalecimento da preparação de equipes para emergências climáticas</li>
+                    </ul>
+                </div>
+
+                <div class="info-block full-width">
+                    <h4>Metodologia Científica</h4>
+                    <div class="methodology-flex">
+                        <div>
+                            <h5>Fase 1: Desenvolvimento</h5>
+                            <ul>
+                                <li>Referenciais internacionais (Hospital Safety Index, Sendai Framework)</li>
+                                <li>Adaptação ao contexto normativo brasileiro</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Fase 2: Aplicação</h5>
+                            <ul>
+                                <li>Entrevistas técnicas sobre as enchentes de 2024 no RS</li>
+                                <li>Avaliação de ondas de calor e eventos extremos</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Fase 3: Diretrizes</h5>
+                            <ul>
+                                <li>Registro de ações formais e informais de enfrentamento</li>
+                                <li>Elaboração de planos de resiliência climática</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.ufrgs.br/resisaude/o-projeto/" target="_blank" class="btn" style="text-decoration: none; display: inline-block;">
+                    <i class="fas fa-external-link-alt"></i> Conheça o projeto
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <section id="vantagens" class="projects">
         <div class="container">
