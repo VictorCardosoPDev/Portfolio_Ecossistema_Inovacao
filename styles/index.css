@@ -439,6 +439,83 @@ nav {
 }
 
 /* ==========================================================================
+   ESTILOS INCUBADORAS
+   ========================================================================== */
+.incubators {
+    background-color: var(--white); /* Contraste com o bg-color anterior */
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.incubator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.incubator-card {
+    background: var(--bg-color);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(45, 106, 79, 0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    /* Animação de flutuação sutil */
+    animation: floatIncubator 6s ease-in-out infinite;
+}
+
+/* Delay para cada card flutuar em tempos diferentes */
+.incubator-card:nth-child(2) { animation-delay: 2s; }
+.incubator-card:nth-child(3) { animation-delay: 4s; }
+
+@keyframes floatIncubator {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.incubator-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-green);
+}
+
+.incubator-icon {
+    font-size: 3rem;
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+}
+
+.status-tag {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    border: 1px solid var(--primary-green);
+    padding: 4px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+/* Efeito de luz passando (Glow) que você gostou */
+.incubator-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.incubator-card:hover::after {
+    left: 100%;
+}
+
+/* ==========================================================================
    7. SEÇÃO CONTATO
    ========================================================================== */
 .contact {
