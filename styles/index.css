@@ -442,8 +442,28 @@ nav {
    ESTILOS INCUBADORAS
    ========================================================================== */
 .incubators {
-    background-color: var(--white); /* Contraste com o bg-color anterior */
-    text-align: center;
+    position: relative;
+    background-color: var(--white);
+    padding: 100px 8%;
+    overflow: hidden;
+}
+
+/* Camada da imagem de fundo */
+.incubators::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito de movimento ao rolar a página */
+    opacity: 0.30;
+    z-index: 1;
+}
+.incubators .container {
+    position: relative;
+    z-index: 2;
 }
 
 .section-header {
@@ -514,7 +534,44 @@ nav {
 .incubator-card:hover::after {
     left: 100%;
 }
+/* Espaçamento do botão abaixo dos cards */
+.incubator-cta {
+    margin-top: 4rem;
+    text-align: center;
+    position: relative;
+    z-index: 5; /* Garante que fique acima do background transparente */
+}
 
+/* Reutilizando seu estilo de botão com o acréscimo do movimento */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(45, 106, 79, 0.2);
+}
+
+.btn-glow i {
+    margin-right: 8px;
+}
+
+/* O "rastro de luz" para satisfazer o pedido de movimento da coordenadora */
+.btn-glow::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50px;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(25deg);
+    animation: lightSweep 4s infinite;
+}
+
+@keyframes lightSweep {
+    0% { left: -100%; }
+    15% { left: 150%; }
+    100% { left: 150%; }
+}
 /* ==========================================================================
    7. SEÇÃO CONTATO
    ========================================================================== */
