@@ -1,566 +1,109 @@
 <!DOCTYPE html>
-<!--
-    Projeto: Ecossistema de Inovação
-    Descrição: Página institucional com âncoras, seção de projetos, modais, e destaque de missão.
-    Estrutura:
-    - header + nav
-    - seções: home, missao, projetos, vantagens, contato
-    - modais para detalhes de projetos
-    - scripts em scripts/index.js
-    - estilos em styles/index.css
--->
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incubadoras</title>
-    <link rel="stylesheet" href="../styles/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <title>La Salle Tech - Incubadora</title>
+
+    <link rel="stylesheet" href="../styles/incubadoras.css">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- HEADER -->
     <header>
         <nav>
-            <a href="#home" class="logo"><i class="fas fa-dna"></i> <span>Ecossistema de Inovação</span></a>
+            <a href="index.html" class="logo">
+                <img src="../assets/logo_eco_inova2.png" alt="">
+                <span>Núcleo Socioambiental</span>
+            </a>
+
             <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#missao">Missão</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#incubadoras">Incubadoras</a></li>
-                <li><a href="#vantagens">Vantagens</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="#">Missão</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#" class="active">Incubadora</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <!-- HERO -->
+    <section class="hero">
         <div class="hero-content">
-            <h1>
-                <span id="changing-text">Tecnologia</span>
-                <span class="white-text">pela</span>
-                <span class="green-text">Sociedade</span>
-            </h1>
-            <p>Unindo tecnologia de ponta, saúde e preservação ambiental em um único ecossistema de inovação.</p>
-            <div class="hero-btns">
-                <a href="#projetos" class="btn">Nossas Projetos</a>
-                <a href="#vantagens" class="btn btn-outline">Seja um Investidor</a>
-            </div>
+            <h1>La Salle Tech</h1>
+            <p>Transformando ideias em soluções inovadoras com impacto real na sociedade.</p>
         </div>
     </section>
 
-    <section id="missao" class="mission">
+    <!-- SOBRE -->
+    <section class="about">
         <div class="container">
-            <div class="mission-grid">
-                <div class="mission-text">
-                    <span class="badge">NOSSO IMPACTO</span>
-                    <h2>Ecossistema de Inovação</h2>
-                    <p>
-                        Atuamos na vanguarda da pesquisa científica para compreender e mitigar os impactos das <strong>enchentes de maio de 2024</strong> no Rio Grande do Sul.
-                        Nosso objetivo é estudar e catalogar as transformações ambientais e seus reflexos diretos na saúde coletiva,
-                        utilizando a tecnologia como ferramenta de diagnóstico e prevenção.
-                    </p>
-                    <p>
-                        Unimos a expertise acadêmica em levantamentos florísticos e monitoramento ecológico, informações de saúde e pacientes
-                        com o potencial disruptivo da <strong>Inteligência Artificial</strong> e a agilidade de um <strong>Hub de Incubadoras</strong>.
-                        Este ecossistema trabalha para preencher lacunas críticas de conhecimento em Unidades de Conservação,
-                        acelerando o desenvolvimento de soluções que protegem a biodiversidade e asseguram o bem-estar social diante de desafios climáticos.
-                    </p>
-                </div>
-
-                <div class="dna-viewport">
-                    <svg class="dna-strands" viewBox="0 0 200 400" preserveAspectRatio="none">
-                        <path class="strand s1" d="M100,0 Q180,100 100,200 Q20,300 100,400" />
-                        <path class="strand s2" d="M100,0 Q20,100 100,200 Q180,300 100,400" />
-                    </svg>
-
-                    <!-- O Núcleo Central -->
-                    <div class="dna-core">
-                        <div class="core-box">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                    </div>
-
-                    <!-- Os Elos (Cards) -->
-                    <div class="dna-node node-top-left">
-                        <div class="dna-card">
-                            <i class="fas fa-leaf"></i>
-                            <div class="dna-info">
-                                <strong>Meio Ambiente</strong>
-                                <span>Monitoramento</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dna-node node-top-right">
-                        <div class="dna-card">
-                            <i class="fas fa-heartbeat"></i>
-                            <div class="dna-info">
-                                <strong>Saúde</strong>
-                                <span>Gestão de Dados</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dna-node node-bottom-left">
-                        <div class="dna-card">
-                            <i class="fas fa-building-columns"></i>
-                            <div class="dna-info">
-                                <strong>Gestão Pública</strong>
-                                <span>Políticas</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dna-node node-bottom-right">
-                        <div class="dna-card">
-                            <i class="fas fa-network-wired"></i>
-                            <div class="dna-info">
-                                <strong>Sistemas</strong>
-                                <span>Arquitetura</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- Fim mission-grid -->
-        </div> <!-- Fim container missao -->
+            <h2>O que é a incubadora?</h2>
+            <p>
+                A La Salle Tech é a incubadora da Universidade La Salle, dedicada ao desenvolvimento de startups e soluções inovadoras.
+                Seu objetivo é conectar pesquisa acadêmica, tecnologia e mercado para gerar impacto social e econômico.
+            </p>
+        </div>
     </section>
 
-    <section id="projetos" class="projects bg-light">
+    <!-- SERVIÇOS -->
+    <section class="services">
         <div class="container">
-            <div class="section-header">
-                <h2>Projetos Estratégicos</h2>
-                <!-- Nova Feature: Filtros Adicionados -->
-                <div class="project-filters">
-                    <button type="button" class="filter-btn active" data-filter="meio-ambiente">Meio Ambiente</button>
-                    <button type="button" class="filter-btn" data-filter="saude">Saúde</button>
-                    <button type="button" class="filter-btn" data-filter="tecnologia">Inteligência Artificial</button>
-                </div>
-            </div>
+            <h2>O que oferecemos</h2>
 
-            <div class="project-carousel">
-                <!-- Grupo: Meio Ambiente -->
-                <div class="project-group active" id="meio-ambiente">
-                    <h1>Meio Ambiente</h1>
-                    <div class="project-grid">
-                        <div class="project-card" data-modal="modalRestaurapa">
-                            <div class="icon-box"><i class="fas fa-leaf"></i></div>
-                            <h3>RestaurAPA: Bioma Pampa</h3>
-                            <p>Restauração ecológica de campos nativos do bioma Pampa</p>
-                            <div class="tags">
-                                <span>Ecologia de ecossistemas</span>
-                                <span>Restauração Ecológica</span>
-                                <span>Conservação do bioma Pampa</span>
-                            </div>
-                        </div>
-
-                        <div class="project-card" data-modal="modalItapua">
-                            <div class="icon-box"><i class="fas fa-tree"></i></div>
-                            <h3>Projeto Itapuã</h3>
-                            <p>Pesquisa e conservação da biodiversidade em áreas protegidas do sul do Brasil</p>
-                            <div class="tags">
-                                <span>Pesquisa</span>
-                                <span>Conservação da biodiversidade</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Mentoria</h3>
+                    <p>Acompanhamento com especialistas para evolução do projeto.</p>
                 </div>
 
-                <!-- Grupo: Saúde -->
-                <div class="project-group" id="saude">
-                    <h1>Saúde</h1>
-                    <div class="project-grid">
-                        <div class="project-card" data-modal="modalResiSaude">
-                            <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
-                            <h3>Projeto de Resiliência Climática: ResiSaúde</h3>
-                            <p>Monitoramento epidemiológico pós-enchentes 2024.</p>
-                            <div class="tags"><span>Epidemiologia</span><span>Saúde Pública</span><span>Enchentes</span></div>
-                        </div>
-                    </div>
+                <div class="card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Capacitação</h3>
+                    <p>Treinamentos e workshops para desenvolvimento empreendedor.</p>
                 </div>
 
-                <!-- Grupo: Tecnologia -->
-                <div class="project-group" id="tecnologia">
-                    <h1>Inteligência Artificial</h1>
-                    <div class="project-grid">
-                        <div class="project-card">
-                            <div class="icon-box"><i class="fas fa-network-wired"></i></div>
-                            <h3>Distributed Hub</h3>
-                            <p>Infraestrutura de nuvem para processamento de IA ambiental.</p>
-                            <div class="tags"><span>Sistemas Distribuídos</span><span>Nuvem</span></div>
-                        </div>
-                        <div class="project-card">
-                            <div class="icon-box"><i class="fas fa-network-wired"></i></div>
-                            <h3>Distributed Hub</h3>
-                            <p>Infraestrutura de nuvem para processamento de IA ambiental.</p>
-                            <div class="tags"><span>Sistemas Distribuídos</span><span>Nuvem</span></div>
-                        </div>
-                    </div>
+                <div class="card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <p>Conexão com empresas, investidores e parceiros.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Desenvolvimento</h3>
+                    <p>Suporte completo para crescimento e validação da startup.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modais -->
-    <div id="modalRestaurapa" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2><i class="fas fa-leaf"></i> Projeto RestaurAPA</h2>
-            <div class="modal-body">
-                <p>Desenvolver e testar estratégias de restauração ecológica de campos invadidos por <i>capim-annoni (Eragrostis plana)</i>, conciliando conservação da biodiversidade com sistemas de pecuária sustentável.</p>
-                <br>
-                <div class="info-block">
-                    <h4>Contexto científico</h4>
-                    <p>Os campos do bioma Pampa apresentam alta diversidade de gramíneas e plantas herbáceas, mas sofrem degradação causada por mudanças no uso da terra e pela invasão de espécies exóticas. Uma das invasoras mais problemáticas é o capim-annoni, identificado cientificamente como <i>Eragrostis plana</i>. Essa gramínea africana reduz a qualidade das pastagens, diminui a biodiversidade e altera a dinâmica ecológica dos campos nativos.</p>
-                </div>
-                <br>
-                <div class="info-block">
-                    <h4>Coordenação científica do projeto</h4>
-                    <p>Pesquisadores da universidade lideraram o planejamento metodológico, a articulação institucional e o monitoramento das atividades de restauração.</p>
-                </div>
-                <br>
-                <div class="info-block">
-                    <h4>Pesquisa Ecológica</h4>
-                    <p>Equipes acadêmicas conduziram levantamentos florísticos que registraram <strong>mais de 300 espécies vegetais</strong> nos campos da APA do Ibirapuitã, demonstrando a alta biodiversidade do bioma Pampa.</p>
-                </div>
-                <br>
-                <div class="info-block">
-                    <h4>Impacto científico e socioambiental</h4>
-                    <p>O projeto mostrou que a restauração de campos nativos pode ocorrer simultaneamente à produção pecuária. Essa abordagem reforçou um conceito da ecologia aplicada: certos sistemas produtivos podem funcionar como aliados da conservação, desde que o manejo respeite os processos ecológicos do ecossistema.</p>
-                </div>
-
-                <div class="modal-info-grid">
-                    <div class="info-block">
-                        <h4>Instituições</h4>
-                        <ul>
-                            <li>Universidade La Salle</li>
-                            <li>Universidade Federal do Rio Grande do Sul</li>
-                            <li>Emater/RS-Ascar</li>
-                            <li>Fundo Brasileiro para a Biodiversidade</li>
-                            <li>Global Environment Facility</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Contribuição do Projeto:</h4>
-                        <ul>
-                            <li>Pesquisas sobre restauração de campos naturais</li>
-                            <li>Estudos sobre dinâmica de invasões biológicas</li>
-                            <li>Estratégias de manejo sustentável em sistemas pastorais</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Resultados Principais</h4>
-                        <ul>
-                            <li>Registro de 329 espécies vegetais pertencentes a 50 famílias botânicas nos campos da APA</li>
-                            <li>Implantação de práticas de manejo sustentável em propriedades rurais</li>
-                            <li>Redução da dominância de capim-annoni em áreas manejadas</li>
-                            <li>Aumento da diversidade de espécies nativas em áreas restauradas</li>
-                            <li>Capacitação de produtores rurais em práticas de manejo ecológico</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Produtos Gerados</h4>
-                        <ul>
-                            <li>Relatórios técnicos de restauração ecológica</li>
-                            <li>Banco de dados florístico da APA do Ibirapuitã</li>
-                            <li>Capacitação de produtores e técnicos rurais</li>
-                            <li>Material técnico sobre manejo sustentável de campos</li>
-                        </ul>
-                    </div>
-                    <div class="info-block full-width">
-                        <h4>Metodologia</h4>
-                        <div class="methodology-flex">
-                            <div>
-                                <h5>Diagnóstico ecológico</h5>
-                                <ul>
-                                    <li>levantamento florístico</li>
-                                    <li>avaliação da cobertura vegetal</li>
-                                    <li>monitoramento de espécies invasoras</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5>Manejo experimental</h5>
-                                <ul>
-                                    <li>controle do capim-annoni</li>
-                                    <li>sobressemeadura de espécies nativas e forrageiras</li>
-                                    <li>manejo de pastagem com pastoreio rotativo</li>
-                                    <li>regeneração natural assistida</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5>Monitoramento</h5>
-                                <ul>
-                                    <li>diversidade de espécies</li>
-                                    <li>cobertura vegetal</li>
-                                    <li>produtividade das pastagens</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modalItapua" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2><i class="fas fa-tree"></i> Projeto Itapuã</h2>
-            <div class="modal-body">
-                <p>Iniciativa de pesquisa, extensão e educação ambiental voltada ao estudo e à conservação da biodiversidade no Parque Estadual de Itapuã, integrando formação acadêmica e preservação de ecossistemas vitais.</p>
-                <br>
-                <div class="info-block">
-                    <h4>Contexto Científico</h4>
-                    <p>Unidades de conservação frequentemente possuem lacunas de conhecimento sobre sua biodiversidade. No caso de Itapuã, que abriga remanescentes de Mata Atlântica, campos, dunas e sistemas lacustres, a produção de dados científicos é essencial para elaborar estratégias eficientes de manejo e conservação de longo prazo.</p>
-                </div>
-                <br>
-                <div class="info-block">
-                    <h4>Contribuição da Universidade La Salle</h4>
-                    <p>A universidade possui papel central na execução científica, proporcionando experiência prática a estudantes em atividades de campo, inventários biológicos e métodos de pesquisa em ecologia, além de promover a aproximação entre a ciência e a sociedade através da extensão.</p>
-                </div>
-                <br>
-                <div class="info-block">
-                    <h4>Área de atuação</h4>
-                    <p>O projeto é realizado no Parque Estadual de Itapuã, unidade de conservação criada em 1973 e localizada em Viamão, na região metropolitana de Porto Alegre. O parque possui cerca de 5.500 hectares e abriga uma grande diversidade de ambientes naturais.</p>
-                </div>
-                <br>
-                <div class="info-block">
-                    <h4>Objetivo Estratégico</h4>
-                    <p>Produzir conhecimento científico sobre os processos ecológicos do Parque, promovendo inventários biológicos, monitoramento de populações e ações de educação ambiental que sensibilizem a comunidade sobre a importância da área.</p>
-                </div>
-
-                <div class="modal-info-grid">
-                    <div class="info-block">
-                        <h4>Instituições Envolvidas</h4>
-                        <ul>
-                            <li>Universidade La Salle</li>
-                            <li>Universidade Federal do Rio Grande do Sul</li>
-                            <li>SEMA/RS e FEPAM</li>
-                            <li>Parque Estadual de Itapuã</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Área de Atuação (5.500 ha)</h4>
-                        <ul>
-                            <li>Remanescentes de Mata Atlântica</li>
-                            <li>Campos naturais e dunas</li>
-                            <li>Formações rochosas graníticas</li>
-                            <li>Praias lacustres da Lagoa dos Patos</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Resultados Principais</h4>
-                        <ul>
-                            <li>Ampliação do conhecimento sobre a biodiversidade local</li>
-                            <li>Formação prática de novos pesquisadores e estudantes</li>
-                            <li>Produção de dados científicos para a gestão do parque</li>
-                            <li>Desenvolvimento de materiais de divulgação científica</li>
-                        </ul>
-                    </div>
-                    <div class="info-block">
-                        <h4>Impacto Científico e Socioambiental</h4>
-                        <ul>
-                            <li>Fortalecimento das UCs como laboratórios naturais</li>
-                            <li>Apoio direto à gestão ambiental pública</li>
-                            <li>Sensibilização da sociedade para a conservação</li>
-                        </ul>
-                    </div>
-                    <div class="info-block full-width">
-                        <h4>Metodologia Científica</h4>
-                        <div class="methodology-flex">
-                            <div>
-                                <h5>Inventários</h5>
-                                <ul>
-                                    <li>Levantamento de fauna e flora</li>
-                                    <li>Identificação de espécies</li>
-                                    <li>Bases de dados biológicos</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5>Monitoramento</h5>
-                                <ul>
-                                    <li>Acompanhamento de populações</li>
-                                    <li>Observação de interações</li>
-                                    <li>Análise de mudanças na biodiversidade</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h5>Educação Ambiental</h5>
-                                <ul>
-                                    <li>Visitas guiadas e extensão</li>
-                                    <li>Produção de material educativo</li>
-                                    <li>Divulgação científica</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="modalResiSaude" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2><i class="fas fa-hospital-alt"></i> Projeto ResiSaúde</h2>
-        <div class="modal-body">
-            <p>Desenvolver um protocolo de avaliação de resiliência de serviços de saúde a eventos climáticos extremos, considerando o contexto local, o papel dos profissionais e o conhecimento tácito das equipes de linha de frente.</p>
-            <br>
-
-            <div class="info-block">
-                <h4>Contexto e Infraestruturas Críticas</h4>
-                <p>Eventos climáticos extremos, caracterizados por chuvas e temperaturas muito acima da média, impõem desafios severos às infraestruturas críticas de saúde. A resiliência é compreendida como a capacidade de adaptação desses sistemas antes, durante e após perturbações, permitindo a manutenção do funcionamento em condições adversas.</p>
-            </div>
-            <br>
-
-            <div class="info-block">
-                <h4>Impactos Diretos e Indiretos</h4>
-                <p>O projeto mapeia impactos diretos, como danos às instalações físicas e aumento de doenças, e impactos indiretos, que decorrem da dependência de infraestruturas essenciais como energia elétrica, água e cadeias de suprimento de medicamentos.</p>
-            </div>
-
-            <div class="modal-info-grid">
-                <div class="info-block">
-                    <h4>Instituições</h4>
-                    <ul>
-                        <li>Universidade Federal do Rio Grande do Sul (UFRGS)</li>
-                        <li>Serviços de Saúde Municipais e Estaduais</li>
-                    </ul>
-                </div>
-                
-                <div class="info-block">
-                    <h4>Áreas de Estudo (RS)</h4>
-                    <ul>
-                        <li>Vale do Taquari (Lajeado, Estrela, Roca Sales, Arroio do Meio)</li>
-                        <li>Região Metropolitana (Porto Alegre e Canoas)</li>
-                        <li>Região Central (Santa Maria)</li>
-                    </ul>
-                </div>
-
-                <div class="info-block">
-                    <h4>Objetivos Secundários</h4>
-                    <ul>
-                        <li>Avaliar a resiliência climática em regiões críticas do RS</li>
-                        <li>Identificar fatores organizacionais que influenciam o desempenho resiliente</li>
-                        <li>Desenvolver diretrizes para políticas públicas e legislações</li>
-                    </ul>
-                </div>
-
-                <div class="info-block">
-                    <h4>Resultados e Impacto</h4>
-                    <ul>
-                        <li>Criação do Banco de Práticas Resilientes (Boas e más práticas)</li>
-                        <li>Protocolo validado para aplicação em outras infraestruturas de saúde</li>
-                        <li>Fortalecimento da preparação de equipes para emergências climáticas</li>
-                    </ul>
-                </div>
-
-                <div class="info-block full-width">
-                    <h4>Metodologia Científica</h4>
-                    <div class="methodology-flex">
-                        <div>
-                            <h5>Fase 1: Desenvolvimento</h5>
-                            <ul>
-                                <li>Referenciais internacionais (Hospital Safety Index, Sendai Framework)</li>
-                                <li>Adaptação ao contexto normativo brasileiro</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Fase 2: Aplicação</h5>
-                            <ul>
-                                <li>Entrevistas técnicas sobre as enchentes de 2024 no RS</li>
-                                <li>Avaliação de ondas de calor e eventos extremos</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Fase 3: Diretrizes</h5>
-                            <ul>
-                                <li>Registro de ações formais e informais de enfrentamento</li>
-                                <li>Elaboração de planos de resiliência climática</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 30px;">
-                <a href="https://www.ufrgs.br/resisaude/o-projeto/" target="_blank" class="btn" style="text-decoration: none; display: inline-block;">
-                    <i class="fas fa-external-link-alt"></i> Conheça o projeto
-                </a>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<section id="incubadoras" class="section-padding incubators">
-    <div class="container">
-        <div class="section-header">
-            <span class="badge">Aceleração</span>
-            <h2>Incubadoras e Parceiros</h2>
-            <p>O suporte necessário para transformar pesquisa acadêmica em soluções de impacto real.</p>
-        </div>
-
-        <div class="incubator-grid">
-            <div class="incubator-card">
-                <div class="incubator-icon">
-                    <i class="fas fa-seedling"></i>
-                </div>
-                <h3>Hestia</h3>
-                <p>Focada em inovação tecnológica e suporte a projetos de engenharia e TI da UFRGS.</p>
-                <span class="status-tag">Parceira Ativa</span>
-            </div>
-            <div class="incubator-card">
-                <div class="incubator-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <h3>La Salle Tech</h3>
-                <p>Ecossistema de inovação e empreendedorismo da Unilasalle, focado em transformar conhecimento em soluções para a região.</p>
-                <span class="status-tag">Desenvolvimento</span>
-            </div>
-            
-            <div class="incubator-card">
-                <div class="incubator-icon">
-                    <i class="fas fa-microscope"></i>
-                </div>
-                <h3>IE-UFRGS</h3>
-                <p>Incubadora Empresarial que auxilia na estruturação de negócios voltados à ciência.</p>
-                <span class="status-tag">Mentoria</span>
-            </div>
-
-            <div class="incubator-card">
-                <div class="incubator-icon">
-                    <i class="fas fa-project-diagram"></i>
-                </div>
-                <h3>Zenit</h3>
-                <p>Parque Científico e Tecnológico que conecta o ecossistema à sociedade.</p>
-                <span class="status-tag">Conexão</span>
-            </div>
-            <div class="incubator-cta">
-                <a href="pages/incubadoras.html" target="_blank" class="btn btn-glow">
-                    Conheça nossa incubadora
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="vantagens" class="projects">
+    <!-- ETAPAS -->
+    <section class="steps">
         <div class="container">
-            <h2>Escritorio de Projetos</h2>
-            <div class="project-grid">
-                <div class="project-card highlight-card">
-                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
-                    <h3>Valor ESG e Branding</h3>
-                    <p>Posicione sua marca como líder em inovação ambiental e saúde global perante investidores e clientes.</p>
+            <h2>Etapas da Incubação</h2>
+
+            <div class="step-grid">
+                <div class="step">
+                    <h3>1. Qualificação</h3>
+                    <p>Preparação da ideia e estruturação do modelo de negócio.</p>
                 </div>
-                <div class="project-card highlight-card">
-                    <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3>Benefícios Fiscais</h3>
-                    <p>Oportunidade de deduções através de leis de incentivo à pesquisa e desenvolvimento tecnológico.</p>
+
+                <div class="step">
+                    <h3>2. Validação</h3>
+                    <p>Testes de mercado e análise de viabilidade.</p>
                 </div>
-                <div class="project-card highlight-card">
-                    <div class="icon-box"><i class="fas fa-rocket"></i></div>
-                    <h3>Acesso à Inovação</h3>
-                    <p>Prioridade em licenciamentos e propriedade intelectual gerada pela equipe de pesquisa.</p>
+
+                <div class="step">
+                    <h3>3. Desenvolvimento</h3>
+                    <p>Crescimento, escala e inserção no mercado.</p>
                 </div>
             </div>
         </div>
@@ -581,8 +124,5 @@
     <footer>
         <p>&copy; 2026 Ecossistema de Inovação</p>
     </footer>
-
-    <script src="./scripts/index.js"></script>
 </body>
-
 </html>
