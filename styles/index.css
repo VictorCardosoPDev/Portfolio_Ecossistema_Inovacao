@@ -2,23 +2,19 @@
    1. VARIÁVEIS E RESET
    ========================================================================== */
 :root {
-    
-    --primary-green: #2d6a4f;
-    --accent-green: #74c69d;
-    --dynamic-green: #4ade80;
-    --earth-brown: #403d39;
-    
-    
-    --bg-color: #f8fafc;
+    --primary-green: #1b7f3a;
+    --secondary-green: #2ea36a;
+    --accent-green: #4ade80;
+
+    --primary-blue: #0f2f44;
+
+    --bg-color: #f5f7f6;
     --white: #ffffff;
-    --text-main: #2d3436;
+
+    --text-main: #1e293b;
     --text-muted: #64748b;
-    --text-dark: #1e293b;
-    
-    
-    --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
-    --shadow-md: 0 15px 30px rgba(45, 106, 79, 0.1);
-    --transition: all 0.3s ease-in-out;
+
+    --shadow-md: 0 15px 30px rgba(27, 127, 58, 0.15);
 }
 
 * {
@@ -85,7 +81,8 @@ header {
     padding: 1rem 8%;
     position: fixed;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: #174666;
+    color: white;
     backdrop-filter: blur(5px);
     box-shadow: var(--shadow-sm);
     z-index: 1000;
@@ -110,10 +107,12 @@ nav {
     width: 40px;
     height: 40px;
     object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
 }
 .logo span {
-    color: var(--accent-green);
-    
+    color: var(--accent-green);    
 }
 
 .nav-links {
@@ -130,7 +129,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--primary-green);
+    color: var(--accent-green);
 }
 
 /* ==========================================================================
@@ -613,11 +612,85 @@ nav {
 /* ==========================================================================
    8. FOOTER
    ========================================================================== */
-    footer{
-        text-align: center;
-        background-color: #2d6a4f;
-        color: white;
-    }
+ /* FOOTER BASE */
+footer {
+    background-color: #174666;
+    color: white;
+    text-align: center;
+}
+
+/* TOPO */
+.footer-top {
+    padding: 60px 20px;
+}
+
+.footer-top h2 {
+    margin-bottom: 10px;
+}
+
+.footer-top p {
+    opacity: 0.9;
+}
+
+/* LINKS */
+.social-links {
+    margin-top: 25px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-divider {
+    width: 60%;
+    height: 3px;
+    background: rgb(255, 255, 255);
+    margin: 30px auto;
+}
+/* PARCEIROS */
+.footer-partners {
+    padding: 30px 20px;
+}
+
+.footer-partners p {
+    margin-bottom: 15px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* LOGOS */
+.partners-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.partners-logos img {
+    height: 90px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.partners-logos img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* BASE */
+.footer-bottom {
+    padding: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
 /* ==========================================================================
    9. RESPONSIVIDADE
    ========================================================================== */
