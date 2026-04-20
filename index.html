@@ -23,8 +23,8 @@
 <body>
 
     <header>
-        <nav>
-            <a href="#home" class="logo">
+        <nav class="reveal">
+            <a href="#home" class="logo" >
                 <img src="assets/logo_eco_inova2.png" alt="">
                 <span>Ecossistema de Inovação</span></a>
             <ul class="nav-links">
@@ -38,7 +38,7 @@
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <section id="home" class="hero reveal">
         <div class="hero-content">
             <h1>
                 <span id="changing-text">Tecnologia</span>
@@ -53,12 +53,12 @@
         </div>
     </section>
 
-    <section id="missao" class="mission">
+    <section id="missao" class="mission" >
         <div class="container">
             <div class="mission-grid">
-                <div class="mission-text">
+                <div class="mission-text reveal">
                     <span class="badge">NOSSO IMPACTO</span>
-                    <h2>Ecossistema de Inovação</h2>
+                    <h2 >Ecossistema de Inovação</h2>
                     <p>
                         Atuamos na vanguarda da pesquisa científica para compreender e mitigar os impactos das <strong>enchentes de maio de 2024</strong> no Rio Grande do Sul.
                         Nosso objetivo é estudar e catalogar as transformações ambientais e seus reflexos diretos na saúde coletiva,
@@ -72,7 +72,7 @@
                     </p>
                 </div>
 
-                <div class="dna-viewport">
+                <div class="dna-viewport reveal">
                     <svg class="dna-strands" viewBox="0 0 200 400" preserveAspectRatio="none">
                         <path class="strand s1" d="M100,0 Q180,100 100,200 Q20,300 100,400" />
                         <path class="strand s2" d="M100,0 Q20,100 100,200 Q180,300 100,400" />
@@ -130,7 +130,7 @@
         </div> <!-- Fim container missao -->
     </section>
 
-    <section id="projetos" class="projects bg-light">
+    <section id="projetos" class="projects bg-light reveal">
         <div class="container">
             <div class="section-header">
                 <h2>Projetos Estratégicos</h2>
@@ -493,7 +493,7 @@
     </div>
 </div>
 
-    <section id="incubadoras" class="section-padding incubators">
+    <section id="incubadoras" class="section-padding incubators reveal">
         <div class="container">
             <div class="section-header">
                 <span class="badge">Aceleração</span>
@@ -501,7 +501,7 @@
                 <p>O suporte necessário para transformar pesquisa acadêmica em soluções de impacto real.</p>
             </div>
 
-            <div class="incubator-grid">
+            <a href="pages/incubadoras.html" class="incubator-grid">
 
                 <div class="incubator-card">
                     <div class="incubator-icon">
@@ -509,19 +509,19 @@
                     </div>
                     <h3>La Salle Tech</h3>
                     <p>Ecossistema de inovação e empreendedorismo da Unilasalle, focado em transformar conhecimento em soluções para a região.</p>
-                    <span class="status-tag">Desenvolvimento</span>
-                </div>
+                    <div class="incubator-footer">
+    <span class="status-tag">Desenvolvimento</span>
 
-                <div class="incubator-cta">
-                    <a href="pages/incubadoras.html" target="_blank" class="btn btn-glow">
-                        Conheça nossa incubadora
-                    </a>
+    <span class="incubator-link">
+        Conheça nossa incubadora <i class="fas fa-arrow-right"></i>
+    </span>
+</div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <section id="vantagens" class="projects">
+    <section id="vantagens" class="projects reveal">
         <div class="container">
             <h2>Vantagens</h2>
             <div class="project-grid">
@@ -544,7 +544,7 @@
         </div>
     </section>
 
-   <footer>
+   <footer class="reveal">
     <div class="footer-top" id="contact">
         <h2>Vamos construir o futuro?</h2>
         <p>Entre em contato para agendar uma reunião técnica com nossa coordenação.</p>

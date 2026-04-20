@@ -34,6 +34,37 @@ body {
     line-height: 1.6;
 }
 
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 0.8s ease;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.8s ease;
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
 /* ==========================================================================
    2. COMPONENTES GLOBAIS
    ========================================================================== */
@@ -472,6 +503,7 @@ nav {
 .incubators .container {
     position: relative;
     z-index: 2;
+    text-decoration: none;
 }
 
 .section-header {
@@ -480,12 +512,14 @@ nav {
 
 .incubator-grid {
     align-content: center;
+    text-decoration: none;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .incubator-card {
     background: var(--bg-color);
+    color: var(--text-main);
     padding: 3rem 2rem;
     border-radius: 20px;
     border: 1px solid rgba(45, 106, 79, 0.05);
@@ -543,19 +577,41 @@ nav {
     left: 100%;
 }
 /* Espaçamento do botão abaixo dos cards */
-.incubator-cta {
-    margin-top: 4rem;
-    text-align: center;
-    position: relative;
-    z-index: 5; /* Garante que fique acima do background transparente */
+
+.incubator-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
 
-/* Reutilizando seu estilo de botão com o acréscimo do movimento */
+.incubator-link {
+    font-weight: 600;
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.incubator-link i {
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.incubator-link:hover {
+    color: var(--accent-green);
+}
+
+.incubator-link:hover i {
+    transform: translateX(5px);
+    
+}
 .btn-glow {
     position: relative;
     overflow: hidden;
     transition: var(--transition);
-    box-shadow: 0 10px 20px rgba(45, 106, 79, 0.2);
+    box-shadow: 0 10px 20px rgba(106, 97, 45, 0.2);
 }
 
 .btn-glow i {
@@ -646,7 +702,7 @@ footer {
 }
 
 .social-links a:hover {
-    opacity: 0.7;
+    color: #4ade80;
 }
 
 .footer-divider {
