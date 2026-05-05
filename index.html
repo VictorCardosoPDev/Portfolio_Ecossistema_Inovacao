@@ -135,7 +135,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Projetos Estratégicos</h2>
-                <!-- Nova Feature: Filtros Adicionados -->
+                <!-- Filtros -->
                 <div class="project-filters">
                     <button type="button" class="filter-btn active" data-filter="meio-ambiente">Meio Ambiente</button>
                     <button type="button" class="filter-btn" data-filter="saude">Saúde</button>
@@ -180,6 +180,9 @@
                     <h1>Saúde</h1>
                     <div class="project-grid">
                         <div class="project-card" data-modal="modalResiSaude">
+                            <div class="project-image">
+                                <img src="/assets/resisaude-image.png" alt="RestaurAPA">
+                            </div>
                             <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
                             <h3>Projeto de Resiliência Climática: ResiSaúde</h3>
                             <p>Monitoramento epidemiológico pós-enchentes 2024.</p>
@@ -190,7 +193,7 @@
 
                 <!-- Grupo: Tecnologia -->
                 <div class="project-group" id="tecnologia">
-                    <h1>Inteligência Artificial</h1>
+                    <h1>Editais do Meio Ambiente</h1>
                     <div class="project-grid">
                         <div class="project-card">
                             <div class="icon-box"><i class="fas fa-network-wired"></i></div>
@@ -318,8 +321,9 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-hero">
-                    <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Capa do Projeto">
-                </div>
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Capa do Projeto">
+            </div>
+
             <h2><i class="fas fa-tree"></i> Projeto Itapuã</h2>
             <div class="modal-body">
                 <p>Iniciativa de pesquisa, extensão e educação ambiental voltada ao estudo e à conservação da biodiversidade no Parque Estadual de Itapuã, integrando formação acadêmica e preservação de ecossistemas vitais.</p>
@@ -413,9 +417,13 @@
             </div>
         </div>
     </div>
+
     <div id="modalResiSaude" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
+        <div class="modal-hero">
+            <img src="/assets/resisaude-image.png" alt="Capa do Projeto">
+        </div>
         <h2><i class="fas fa-hospital-alt"></i> Projeto ResiSaúde</h2>
         <div class="modal-body">
             <p>Desenvolver um protocolo de avaliação de resiliência de serviços de saúde a eventos climáticos extremos, considerando o contexto local, o papel dos profissionais e o conhecimento tácito das equipes de linha de frente.</p>
