@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Administrativo - Ecossistema de Inovação</title>
+
+    <link rel="stylesheet" href="../styles/dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="admin-header">
+
+        <div>
+            <h1>Painel Administrativo</h1>
+            <p>Ecossistema de Inovação</p>
+        </div>
+
+        <a href="./home.html" class="back-site">
+            <i class="fas fa-arrow-left"></i>
+            Voltar ao site
+        </a>
+
+    </header>
+
+
+    <main class="admin-container">
+
+        <section class="admin-card">
+
+            <div class="admin-title">
+                <div>
+                    <span>GERENCIAMENTO</span>
+                    <h2>Adicionar publicação</h2>
+                </div>
+
+                <i class="fas fa-newspaper"></i>
+            </div>
+
+
+            <form id="post-form">
+
+                <div class="form-group">
+
+                    <label for="tipo">
+                        Tipo
+                    </label>
+
+                    <select id="tipo" required>
+
+                        <option value="evento">
+                            Evento
+                        </option>
+
+                        <option value="publicacao">
+                            Publicação
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="titulo">
+                        Título
+                    </label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        placeholder="Título do evento ou publicação"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="data">
+                            Data
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="local">
+                            Local
+                        </label>
+
+                        <input
+                            type="text"
+                            id="local"
+                            placeholder="Ex.: Universidade La Salle"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="categoria">
+                        Categoria
+                    </label>
+
+                    <input
+                        type="text"
+                        id="categoria"
+                        placeholder="Ex.: Congresso, Workshop, Pesquisa..."
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="descricao">
+                        Descrição
+                    </label>
+
+                    <textarea
+                        id="descricao"
+                        rows="5"
+                        placeholder="Descrição do evento ou publicação..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="capa">
+                        Imagem de capa
+                    </label>
+
+                    <input
+                        type="file"
+                        id="capa"
+                        accept="image/*"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="link">
+                        Link da publicação / evento
+                    </label>
+
+                    <input
+                        type="url"
+                        id="link"
+                        placeholder="https://exemplo.com/publicacao"
+                    >
+
+                </div>
+                <button type="submit" class="btn-save">
+
+                    <i class="fas fa-plus"></i>
+
+                    Adicionar publicação
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="admin-card">
+
+            <div class="admin-title">
+
+                <div>
+
+                    <span>PUBLICAÇÕES</span>
+
+                    <h2>Conteúdos cadastrados</h2>
+
+                </div>
+
+                <strong id="total-posts">0</strong>
+
+            </div>
+
+
+            <div id="admin-post-list" class="admin-post-list"></div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../scripts/dashboard.js"></script>
+
+</body>
+
+</html>

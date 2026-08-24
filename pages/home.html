@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<!--
+    Projeto: Ecossistema de Inovação
+    Descrição: Página institucional com âncoras, seção de projetos, modais, e destaque de missão.
+    Estrutura:
+    - header + nav
+    - seções: home, missao, projetos, vantagens, contato
+    - modais para detalhes de projetos
+    - scripts em scripts/index.js
+    - estilos em styles/index.css
+-->
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecossistema de Inovação</title>
+    <link rel="stylesheet" href="../styles/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="reveal">
+            <a href="#home" class="logo" >
+                <img src="../assets/logo_eco_inova1.png" alt="">
+                <span>Ecossistema de Inovação</span></a>
+            <ul class="nav-links">
+                <li><a href="#missao">Missão</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#incubadoras">Incubadoras</a></li>
+                <li><a href="#vantagens">Vantagens</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero reveal">
+        
+        <div class="hero-content">
+            <h1>
+            <span class="hero-subtitle">
+                PROJETO DE PESQUISA E INOVAÇÃO
+            </span>
+
+            <h1>
+                Ecossistema de Inovação
+            </h1>
+
+            <h2>
+                Avanços Tecnológicos em Resiliência Climática Gaúcha
+            </h2>
+
+            <p>
+                Unindo tecnologia de ponta, saúde e preservação ambiental em um único ecossistema de inovação.
+            </p>
+
+            <span class="hero-support">
+                Projeto desenvolvido com apoio da FAPERGS.
+            </span>
+            <div class="hero-btns">
+                <a href="#projetos" class="btn">Nossos Projetos</a>
+                <a href="#vantagens" class="btn btn-outline">Seja um Investidor</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="missao" class="mission" >
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-text reveal">
+                    <span class="badge">NOSSO IMPACTO</span>
+                    <h2 >Ecossistema de Inovação</h2>
+                    <p>
+                        Atuamos na vanguarda da pesquisa científica para compreender e mitigar os impactos das <strong>enchentes de maio de 2024</strong> no Rio Grande do Sul.
+                        Nosso objetivo é estudar e catalogar as transformações ambientais e seus reflexos diretos na saúde coletiva,
+                        utilizando a tecnologia como ferramenta de diagnóstico e prevenção.
+                    </p>
+                    <p>
+                        Unimos a expertise acadêmica em levantamentos florísticos e monitoramento ecológico, informações de saúde e pacientes
+                        com o potencial disruptivo da <strong>Inteligência Artificial</strong> e a agilidade de um <strong>Hub de Incubadoras</strong>.
+                        Este ecossistema trabalha para preencher lacunas críticas de conhecimento em Unidades de Conservação,
+                        acelerando o desenvolvimento de soluções que protegem a biodiversidade e asseguram o bem-estar social diante de desafios climáticos.
+                    </p>
+                </div>
+
+                <div class="dna-viewport reveal">
+                    <svg class="dna-strands" viewBox="0 0 200 400" preserveAspectRatio="none">
+                        <path class="strand s1" d="M100,0 Q180,100 100,200 Q20,300 100,400" />
+                        <path class="strand s2" d="M100,0 Q20,100 100,200 Q180,300 100,400" />
+                    </svg>
+
+                    <!-- O Núcleo Central -->
+                    <div class="dna-core">
+                        <div class="core-box">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                    </div>
+
+                    <!-- Os Elos (Cards) -->
+                    <div class="dna-node node-top-left">
+                        <div class="dna-card">
+                            <i class="fas fa-leaf"></i>
+                            <div class="dna-info">
+                                <strong>Meio Ambiente</strong>
+                                <span>Monitoramento</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dna-node node-top-right">
+                        <div class="dna-card">
+                            <i class="fas fa-heartbeat"></i>
+                            <div class="dna-info">
+                                <strong>Saúde</strong>
+                                <span>Gestão de Dados</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dna-node node-bottom-left">
+                        <div class="dna-card">
+                            <i class="fas fa-building-columns"></i>
+                            <div class="dna-info">
+                                <strong>Gestão Pública</strong>
+                                <span>Políticas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dna-node node-bottom-right">
+                        <div class="dna-card">
+                            <i class="fas fa-network-wired"></i>
+                            <div class="dna-info">
+                                <strong>Sistemas</strong>
+                                <span>Arquitetura</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </section>
+    <div class="section-divider"></div>
+    <!-- Projetos -->
+    <section id="projetos" class="projects bg-light reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>Projetos Estratégicos</h2>
+                <!-- Filtros -->
+                <div class="project-filters">
+                    <button type="button" class="filter-btn active" data-filter="meio-ambiente">Meio Ambiente</button>
+                    <button type="button" class="filter-btn" data-filter="saude">Saúde</button>
+                    <button type="button" class="filter-btn" data-filter="tecnologia">Inovação e Tecnologia</button>
+                </div>
+            </div>
+
+            <div class="project-carousel">
+                <!-- Grupo: Meio Ambiente -->
+                <div class="project-group active" id="meio-ambiente">
+                    <h1>Meio Ambiente</h1>
+                    <div class="project-grid">
+                        <div class="project-card" data-modal="modalRestaurapa">
+                            <div class="project-image">
+                                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="RestaurAPA">
+                            </div>
+                            <h3>RestaurAPA: Bioma Pampa</h3>
+                            <p>Restauração ecológica de campos nativos do bioma Pampa</p>
+                            <div class="tags">
+                                <span>Ecologia de ecossistemas</span>
+                                <span>Restauração Ecológica</span>
+                                <span>Conservação do bioma Pampa</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-modal="modalItapua">
+                            <div class="project-image">
+                                <img src="../assets/parque-estadual-de-itapua.jpg" alt="Floresta">
+                            </div>
+                            <h3>Projeto Itapuã</h3>
+                            <p>Pesquisa e conservação da biodiversidade em áreas protegidas do sul do Brasil</p>
+                            <div class="tags">
+                                <span>Pesquisa</span>
+                                <span>Conservação da biodiversidade</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo: Saúde -->
+                <div class="project-group" id="saude">
+                    <h1>Saúde</h1>
+                    <div class="project-grid">
+                        <div class="project-card" data-modal="modalResiSaude">
+                            <div class="project-image">
+                                <img src="../assets/resisaude-image.png" alt="RestaurAPA">
+                            </div>
+                            <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
+                            <h3>Projeto de Resiliência Climática: ResiSaúde</h3>
+                            <p>Resiliência climática de serviços de saúde</p>
+                            <div class="tags"><span>Resiliência climática de serviços de saúde</span><span>Saúde Pública</span><span>Enchentes</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grupo: Tecnologia -->
+                <div class="project-group" id="tecnologia">
+                    <h1>Editais do Meio Ambiente</h1>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="icon-box"><i class="fas fa-network-wired"></i></div>
+                            <h3>Distributed Hub</h3>
+                            <p>Infraestrutura de nuvem para processamento de IA ambiental.</p>
+                            <div class="tags"><span>Sistemas Distribuídos</span><span>Nuvem</span></div>
+                        </div>
+                        <div class="project-card">
+                            <div class="icon-box"><i class="fas fa-network-wired"></i></div>
+                            <h3>Distributed Hub</h3>
+                            <p>Infraestrutura de nuvem para processamento de IA ambiental.</p>
+                            <div class="tags"><span>Sistemas Distribuídos</span><span>Nuvem</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Publicações e Eventos -->
+    <!-- ===========================
+        EVENTOS
+=========================== -->
+
+<section id="eventos" class="events-section reveal">
+
+    <div id="event-list" class="events-grid">
+
+        <div class="section-header">
+
+            <span class="section-badge">
+                Eventos e Divulgação Científica
+            </span>
+
+            <h2>
+                Eventos
+            </h2>
+
+            <p>
+                Acompanhe congressos, workshops, seminários e demais ações
+                promovidas pelo Ecossistema de Inovação.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+    <!-- ===========================
+        MODAL EVENTO
+=========================== -->
+
+
+
+    <!-- Modais -->
+    <div id="modalRestaurapa" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-hero">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Mãos segurando terra" alt="Capa do Projeto">
+                </div>
+            <h2><i class="fas fa-leaf"></i> Projeto RestaurAPA</h2>
+            <div class="modal-body">
+                <p>Desenvolver e testar estratégias de restauração ecológica de campos invadidos por <i>capim-annoni (Eragrostis plana)</i>, conciliando conservação da biodiversidade com sistemas de pecuária sustentável.</p>
+                <br>
+                <div class="info-block">
+                    <h4>Contexto científico</h4>
+                    <p>Os campos do bioma Pampa apresentam alta diversidade de gramíneas e plantas herbáceas, mas sofrem degradação causada por mudanças no uso da terra e pela invasão de espécies exóticas. Uma das invasoras mais problemáticas é o capim-annoni, identificado cientificamente como <i>Eragrostis plana</i>. Essa gramínea africana reduz a qualidade das pastagens, diminui a biodiversidade e altera a dinâmica ecológica dos campos nativos.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Coordenação científica do projeto</h4>
+                    <p>Pesquisadores da universidade lideraram o planejamento metodológico, a articulação institucional e o monitoramento das atividades de restauração.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Pesquisa Ecológica</h4>
+                    <p>Equipes acadêmicas conduziram levantamentos florísticos que registraram <strong>mais de 300 espécies vegetais</strong> nos campos da APA do Ibirapuitã, demonstrando a alta biodiversidade do bioma Pampa.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Impacto científico e socioambiental</h4>
+                    <p>O projeto mostrou que a restauração de campos nativos pode ocorrer simultaneamente à produção pecuária. Essa abordagem reforçou um conceito da ecologia aplicada: certos sistemas produtivos podem funcionar como aliados da conservação, desde que o manejo respeite os processos ecológicos do ecossistema.</p>
+                </div>
+
+                <div class="modal-info-grid">
+                    <div class="info-block">
+                        <h4>Instituições</h4>
+                        <ul>
+                            <li>Universidade La Salle</li>
+                            <li>Universidade Federal do Rio Grande do Sul</li>
+                            <li>Emater/RS-Ascar</li>
+                            <li>Fundo Brasileiro para a Biodiversidade</li>
+                            <li>Global Environment Facility</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Contribuição do Projeto:</h4>
+                        <ul>
+                            <li>Pesquisas sobre restauração de campos naturais</li>
+                            <li>Estudos sobre dinâmica de invasões biológicas</li>
+                            <li>Estratégias de manejo sustentável em sistemas pastorais</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Resultados Principais</h4>
+                        <ul>
+                            <li>Registro de 329 espécies vegetais pertencentes a 50 famílias botânicas nos campos da APA</li>
+                            <li>Implantação de práticas de manejo sustentável em propriedades rurais</li>
+                            <li>Redução da dominância de capim-annoni em áreas manejadas</li>
+                            <li>Aumento da diversidade de espécies nativas em áreas restauradas</li>
+                            <li>Capacitação de produtores rurais em práticas de manejo ecológico</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Produtos Gerados</h4>
+                        <ul>
+                            <li>Relatórios técnicos de restauração ecológica</li>
+                            <li>Banco de dados florístico da APA do Ibirapuitã</li>
+                            <li>Capacitação de produtores e técnicos rurais</li>
+                            <li>Material técnico sobre manejo sustentável de campos</li>
+                        </ul>
+                    </div>
+                    <div class="info-block full-width">
+                        <h4>Metodologia</h4>
+                        <div class="methodology-flex">
+                            <div>
+                                <h5>Diagnóstico ecológico</h5>
+                                <ul>
+                                    <li>levantamento florístico</li>
+                                    <li>avaliação da cobertura vegetal</li>
+                                    <li>monitoramento de espécies invasoras</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Manejo experimental</h5>
+                                <ul>
+                                    <li>controle do capim-annoni</li>
+                                    <li>sobressemeadura de espécies nativas e forrageiras</li>
+                                    <li>manejo de pastagem com pastoreio rotativo</li>
+                                    <li>regeneração natural assistida</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Monitoramento</h5>
+                                <ul>
+                                    <li>diversidade de espécies</li>
+                                    <li>cobertura vegetal</li>
+                                    <li>produtividade das pastagens</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalItapua" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-hero">
+                <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Capa do Projeto">
+            </div>
+
+            <h2><i class="fas fa-tree"></i> Projeto Itapuã</h2>
+            <div class="modal-body">
+                <p>Iniciativa de pesquisa, extensão e educação ambiental voltada ao estudo e à conservação da biodiversidade no Parque Estadual de Itapuã, integrando formação acadêmica e preservação de ecossistemas vitais.</p>
+                <br>
+                <div class="info-block">
+                    <h4>Contexto Científico</h4>
+                    <p>Unidades de conservação frequentemente possuem lacunas de conhecimento sobre sua biodiversidade. No caso de Itapuã, que abriga remanescentes de Mata Atlântica, campos, dunas e sistemas lacustres, a produção de dados científicos é essencial para elaborar estratégias eficientes de manejo e conservação de longo prazo.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Contribuição da Universidade La Salle</h4>
+                    <p>A universidade possui papel central na execução científica, proporcionando experiência prática a estudantes em atividades de campo, inventários biológicos e métodos de pesquisa em ecologia, além de promover a aproximação entre a ciência e a sociedade através da extensão.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Área de atuação</h4>
+                    <p>O projeto é realizado no Parque Estadual de Itapuã, unidade de conservação criada em 1973 e localizada em Viamão, na região metropolitana de Porto Alegre. O parque possui cerca de 5.500 hectares e abriga uma grande diversidade de ambientes naturais.</p>
+                </div>
+                <br>
+                <div class="info-block">
+                    <h4>Objetivo Estratégico</h4>
+                    <p>Produzir conhecimento científico sobre os processos ecológicos do Parque, promovendo inventários biológicos, monitoramento de populações e ações de educação ambiental que sensibilizem a comunidade sobre a importância da área.</p>
+                </div>
+
+                <div class="modal-info-grid">
+                    <div class="info-block">
+                        <h4>Instituições Envolvidas</h4>
+                        <ul>
+                            <li>Universidade La Salle</li>
+                            <li>Universidade Federal do Rio Grande do Sul</li>
+                            <li>SEMA/RS e FEPAM</li>
+                            <li>Parque Estadual de Itapuã</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Área de Atuação (5.500 ha)</h4>
+                        <ul>
+                            <li>Remanescentes de Mata Atlântica</li>
+                            <li>Campos naturais e dunas</li>
+                            <li>Formações rochosas graníticas</li>
+                            <li>Praias lacustres da Lagoa dos Patos</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Resultados Principais</h4>
+                        <ul>
+                            <li>Ampliação do conhecimento sobre a biodiversidade local</li>
+                            <li>Formação prática de novos pesquisadores e estudantes</li>
+                            <li>Produção de dados científicos para a gestão do parque</li>
+                            <li>Desenvolvimento de materiais de divulgação científica</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h4>Impacto Científico e Socioambiental</h4>
+                        <ul>
+                            <li>Fortalecimento das UCs como laboratórios naturais</li>
+                            <li>Apoio direto à gestão ambiental pública</li>
+                            <li>Sensibilização da sociedade para a conservação</li>
+                        </ul>
+                    </div>
+                    <div class="info-block full-width">
+                        <h4>Metodologia Científica</h4>
+                        <div class="methodology-flex">
+                            <div>
+                                <h5>Inventários</h5>
+                                <ul>
+                                    <li>Levantamento de fauna e flora</li>
+                                    <li>Identificação de espécies</li>
+                                    <li>Bases de dados biológicos</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Monitoramento</h5>
+                                <ul>
+                                    <li>Acompanhamento de populações</li>
+                                    <li>Observação de interações</li>
+                                    <li>Análise de mudanças na biodiversidade</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Educação Ambiental</h5>
+                                <ul>
+                                    <li>Visitas guiadas e extensão</li>
+                                    <li>Produção de material educativo</li>
+                                    <li>Divulgação científica</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalResiSaude" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-hero">
+            <img src="../assets/resisaude-image.png" alt="Capa do Projeto">
+        </div>
+        <h2><i class="fas fa-hospital-alt"></i> Projeto ResiSaúde</h2>
+        <div class="modal-body">
+            <p>Desenvolver um protocolo de avaliação de resiliência de serviços de saúde a eventos climáticos extremos, considerando o contexto local, o papel dos profissionais e o conhecimento tácito das equipes de linha de frente.</p>
+            <br>
+
+            <div class="info-block">
+                <h4>Contexto e Infraestruturas Críticas</h4>
+                <p>Eventos climáticos extremos, caracterizados por chuvas e temperaturas muito acima da média, impõem desafios severos às infraestruturas críticas de saúde. A resiliência é compreendida como a capacidade de adaptação desses sistemas antes, durante e após perturbações, permitindo a manutenção do funcionamento em condições adversas.</p>
+            </div>
+            <br>
+
+            <div class="info-block">
+                <h4>Impactos Diretos e Indiretos</h4>
+                <p>
+                    O projeto mapeou impactos diretos nas estruturas físicas, equipamentos, insumos, assim como a repercussão nos profissionais que atuaram nos serviços de saúde, e os impactos indiretos decorreram da dependência dos serviços de saúde em relação a outras infraestruturas essenciais e, especialmente, às cicatrizes emocionais deixadas pela inundação de 2024.
+                </p>
+            </div>
+
+            <div class="modal-info-grid">
+                <div class="info-block">
+                    <h4>Instituições</h4>
+                    <ul>
+                        <li>Universidade Federal do Rio Grande do Sul (UFRGS)</li>
+                        <li>Universidade La Salle</li>
+                    </ul>
+                </div>
+                
+                <div class="info-block">
+                    <h4>Áreas de Estudo (RS)</h4>
+                    <ul>
+                        <li>Vale do Taquari (Lajeado, Estrela, Roca Sales, Arroio do Meio)</li>
+                        <li>Região Metropolitana (Porto Alegre e Canoas)</li>
+                    </ul>
+                </div>
+
+                <div class="info-block">
+                    <h4>Objetivos Secundários</h4>
+                    <ul>
+                        <li>Avaliar a resiliência climática em regiões críticas do RS</li>
+                        <li>Identificar fatores organizacionais que influenciam o desempenho resiliente</li>
+                        <li>Desenvolver diretrizes para políticas públicas e legislações</li>
+                    </ul>
+                </div>
+
+                <div class="info-block">
+                    <h4>Resultados e Impacto</h4>
+                    <ul>
+                        <li>Criação do Banco de Práticas Resilientes (Boas e más práticas)</li>
+                        <li>Protocolo validado para aplicação em outras infraestruturas de saúde</li>
+                        <li>Fortalecimento da preparação de equipes para emergências climáticas</li>
+                    </ul>
+                </div>
+
+                <div class="info-block full-width">
+                    <h4>Metodologia Científica</h4>
+                    <div class="methodology-flex">
+                        <div>
+                            <h5>Fase 1: Desenvolvimento</h5>
+                            <ul>
+                                <li>Referenciais internacionais (Hospital Safety Index, Sendai Framework)</li>
+                                <li>Adaptação ao contexto normativo brasileiro</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Fase 2: Aplicação</h5>
+                            <ul>
+                                <li>Entrevistas técnicas sobre as enchentes de 2024 no RS</li>
+                                <li>Avaliação de ondas de calor e eventos extremos</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Fase 3: Diretrizes</h5>
+                            <ul>
+                                <li>Registro de ações formais e informais de enfrentamento</li>
+                                <li>Elaboração de planos de resiliência climática</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.ufrgs.br/resisaude/o-projeto/" target="_blank" class="btn" style="text-decoration: none; display: inline-block;">
+                    <i class="fas fa-external-link-alt"></i> Conheça o projeto
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <section id="incubadoras" class="section-padding incubators reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Aceleração</span>
+                <h2>Incubadoras e Parceiros</h2>
+                <p>O suporte necessário para transformar pesquisa acadêmica em soluções de impacto real.</p>
+            </div>
+
+            <a href="https://www.unilasalle.edu.br/canoas/servicos/la-salle-tech" class="incubator-grid">
+
+                <div class="incubator-card">
+                    <div class="incubator-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>La Salle Tech</h3>
+                    <p>Ecossistema de inovação e empreendedorismo da Unilasalle, focado em transformar conhecimento em soluções para a região.</p>
+                    <div class="incubator-footer">
+    <span class="status-tag">Desenvolvimento</span>
+
+    <span class="incubator-link">
+        Conheça nossa incubadora <i class="fas fa-arrow-right"></i>
+    </span>
+</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="vantagens" class="projects reveal">
+        <div class="container">
+            <h2>Vantagens</h2>
+            <div class="project-grid">
+                <div class="project-card highlight-card">
+                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                    <h3>Valor ESG e Branding</h3>
+                    <p>Posicione sua marca como líder em inovação ambiental e saúde global perante investidores e clientes.</p>
+                </div>
+                <div class="project-card highlight-card">
+                    <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Benefícios Fiscais</h3>
+                    <p>Oportunidade de deduções através de leis de incentivo à pesquisa e desenvolvimento tecnológico.</p>
+                </div>
+                <div class="project-card highlight-card">
+                    <div class="icon-box"><i class="fas fa-rocket"></i></div>
+                    <h3>Acesso à Inovação</h3>
+                    <p>Prioridade em licenciamentos e propriedade intelectual gerada pela equipe de pesquisa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <footer class="reveal">
+    <div class="footer-top" id="contact">
+        <h2>Vamos construir o futuro?</h2>
+        <p>Entre em contato para agendar uma reunião técnica com nossa coordenação.</p>
+
+        <div class="footer-divider"></div>
+
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i> Instagram </a>
+            <a href="#"><i class="fa-solid fa-building-columns"></i> Instituição</a>
+            <a href="mailto:contato@ecotech.edu.br"><i class="fas fa-envelope"></i> E-mail</a>
+        </div>
+
+        <div class="footer-divider"></div>
+
+    </div>
+
+    <div class="footer-partners">
+        <p>Projeto desenvolvido com apoio de:</p>
+
+        <div class="partners-logos">
+            <img src="../assets/logo-lasalle.png" alt="La Salle">
+            <img src="../assets/logo-fapergs.png" alt="Fapergs">
+        </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+
+    <div class="footer-bottom">
+        <p>© 2026 Ecossistema de Inovação</p>
+    </div>
+</footer>
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-angle-up"></i>
+</button>
+<div id="event-modal" class="event-modal">
+
+    <div class="event-modal-content">
+
+        <button id="close-modal" class="close-modal">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <img id="modal-cover" class="modal-cover" src="" alt="">
+
+        <div class="modal-body">
+
+            <span id="modal-category" class="event-category"></span>
+
+            <h2 id="modal-title"></h2>
+
+            <div class="modal-info">
+
+                <span id="modal-date"></span>
+
+                <span id="modal-location"></span>
+
+            </div>
+
+            <p id="modal-description"></p>
+            <div class="event-gallery">
+
+            <h3>Galeria</h3>
+
+            <div id="gallery" class="gallery"></div>
+
+        </div>
+        
+    
+</div>
+</div>
+<div id="lightbox" class="lightbox">
+
+    <button id="prev-image" class="lightbox-arrow left">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <img id="lightbox-img" src="" alt="">
+
+    <button id="next-image" class="lightbox-arrow right">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <button id="close-lightbox" class="lightbox-close">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div id="lightbox-counter" class="lightbox-counter"></div>
+
+</div>
+    <script src="../scripts/data/eventos.js"></script>
+    <script src="../scripts/home.js"></script>
+</body>
+
+</html>

@@ -1,198 +1,49 @@
-(function () {
-    // Variáveis de referência no DOM
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
+const SUPABASE_URL = "https://rakngaethbhtvmhipksa.supabase.co";
+const SUPABASE_KEY = "sb_publishable__souUrqxLn0NJJVhhdQ1AQ_nP3uUGD1";
 
-    // Texto dinâmico da seção hero
-    const textElement = document.getElementById('changing-text');
-    const words = ['Tecnologia', 'Saúde', 'Meio Ambiente'];
-    let currentIndex = 0;
-    let textIntervalId = null;
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 
-    /**
-     * Atualiza o link ativo do menu de navegação em função da seção visível.
-     * Chamado no evento de scroll (scroll spy)
-     */
 
-    function setActiveNav() {
-        let currentSectionId = '';
+document
+    .getElementById("login-form")
+    .addEventListener("submit", async function (event) {
 
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (window.pageYOffset >= sectionTop - 150) {
-                currentSectionId = section.id;
-            }
-        });
+        event.preventDefault();
 
-        navLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            link.classList.toggle('active', href === `#${currentSectionId}`);
-        });
-    }
+        const email =
+            document.getElementById("email").value;
 
-    /**
-     * Inicializa o scroll spy para atualizar estado de menu conforme rolagem.
-     */
-    function initScrollSpy() {
-        setActiveNav();
-        window.addEventListener('scroll', setActiveNav);
-    }
+        const password =
+            document.getElementById("password").value;
 
-    /**
-     * Alterna o texto do banner hero com transição suave (fade + movimento vertical).
-     */
-    function updateHeroText() {
-        if (!textElement) return;
+        const errorElement =
+            document.getElementById("login-error");
 
-        textElement.style.opacity = '0';
-        textElement.style.transform = 'translateY(5px)';
 
-        setTimeout(() => {
-            currentIndex = (currentIndex + 1) % words.length;
-            textElement.textContent = words[currentIndex];
-            textElement.style.opacity = '1';
-            textElement.style.transform = 'translateY(0)';
-        }, 500);
-    }
+        errorElement.textContent = "";
 
-    /**
-     * Inicia o ciclo de troca de palavras no texto hero e adiciona comportamentos de pausa no hover.
-     */
-    function initHeroRotation() {
-        if (!textElement) return;
 
-        textIntervalId = setInterval(updateHeroText, 3000);
-
-        // pausa a animação ao focar no texto (opcional)
-        textElement.addEventListener('mouseover', () => clearInterval(textIntervalId));
-        textElement.addEventListener('mouseout', () => {
-            textIntervalId = setInterval(updateHeroText, 3000);
-        });
-    }
-
-    /**
-     * Abre modal pelo id e bloqueia rolagem do corpo.
-     * @param {string} id - ID do elemento modal.
-     */
-    function openModal(id) {
-        const modal = document.getElementById(id);
-        if (!modal) return;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-
-    /**
-     * Fecha modal pelo id e restaura rolagem do corpo.
-     * @param {string} id - ID do elemento modal.
-     */
-    function closeModal(id) {
-        const modal = document.getElementById(id);
-        if (!modal) return;
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    function initModals() {
-        document.querySelectorAll('.project-card[data-modal]').forEach((card) => {
-            card.addEventListener('click', () => {
-                const targetId = card.dataset.modal;
-                if (targetId) openModal(targetId);
+        const { error } =
+            await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
             });
-        });
 
-        document.querySelectorAll('.close').forEach((btn) => {
-            btn.addEventListener('click', (event) => {
-                const modal = event.currentTarget.closest('.modal');
-                if (!modal) return;
-                closeModal(modal.id);
-            });
-        });
 
-        document.addEventListener('click', (event) => {
-            if (event.target.classList.contains('modal')) {
-                closeModal(event.target.id);
-            }
-        });
-    }
+        if (error) {
 
-    function filterProjects(categoryId, activeButton = null) {
-        const buttons = document.querySelectorAll('.filter-btn');
-        const groups = document.querySelectorAll('.project-group');
+            errorElement.textContent =
+                "E-mail ou senha incorretos.";
 
-        buttons.forEach((btn) => btn.classList.remove('active'));
-        groups.forEach((group) => group.classList.remove('active'));
+            return;
 
-        if (activeButton) {
-            activeButton.classList.add('active');
-        } else {
-            const fallbackButton = document.querySelector(`.filter-btn[data-filter="${categoryId}"]`);
-            if (fallbackButton) fallbackButton.classList.add('active');
         }
 
-        const targetGroup = document.getElementById(categoryId);
-        if (targetGroup) {
-            targetGroup.classList.add('active');
-        }
-    }
 
-    function initProjectFilters() {
-        document.querySelectorAll('.filter-btn').forEach((button) => {
-            button.addEventListener('click', () => {
-                const filterId = button.dataset.filter;
-                if (filterId) filterProjects(filterId, button);
-            });
-        });
-    }
+        window.location.href = "../pages/home.html";
 
-    function init() {
-        initScrollSpy();
-        initHeroRotation();
-        initModals();
-        initProjectFilters();
-    }
-
-    document.addEventListener('DOMContentLoaded', init);
-
-    // Expor funções globais para compatibilidade com atributos onclick existentes
-    window.openModal = openModal;
-    window.closeModal = closeModal;
-    window.filterProjects = filterProjects;
-})();
-const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        }
-    });
-}, {
-    threshold: 0.2
-});
-
-reveals.forEach(el => observer.observe(el));
-
-/* ==========================================================================
-   BOTÃO VOLTAR AO TOPO
-   ========================================================================== */
-
-const backToTopButton = document.getElementById('backToTop');
-
-window.addEventListener('scroll', () => {
-
-    if (window.scrollY > 400) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
-    }
-
-});
-
-backToTopButton.addEventListener('click', () => {
-
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
     });
 
-});
