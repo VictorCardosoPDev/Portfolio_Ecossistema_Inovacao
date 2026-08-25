@@ -1,3 +1,150 @@
+const supabaseUrl = "https://rakngaethbhtvmhipksa.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJha25nYWV0aGJodHZtaGlwa3NhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc2MDM4MTUsImV4cCI6MjEwMzE3OTgxNX0.x26J86jqWWJTEoV_83n0vqfjaLWBDt_dbgekB0IFh7U";
+
+const supabaseClient = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderizarPosts();
+});
+async function carregarPosts() {
+
+    const { data, error } = await supabaseClient
+        .from("posts")
+        .select("*")
+        .order("data", {
+            ascending: false
+        });
+
+    if (error) {
+
+        console.error("Erro ao carregar publicações:", error);
+
+        return [];
+
+    }
+
+    return data || [];
+}
+
+async function renderizarPosts() {
+
+    const container = document.getElementById("event-list");
+
+    if (!container) {
+        console.error("Elemento #event-list não encontrado.");
+        return;
+    }
+
+    const posts = await carregarPosts();
+
+    // Remove somente os cards antigos
+    container
+        .querySelectorAll(".event-card")
+        .forEach(card => card.remove());
+
+
+    if (posts.length === 0) {
+
+        console.log("Nenhuma publicação encontrada.");
+
+        return;
+    }
+
+
+    posts.forEach(post => {
+
+        const card = document.createElement("article");
+
+        card.className = "event-card";
+
+
+        const data = new Date(
+            post.data + "T00:00:00"
+        );
+
+
+        card.innerHTML = `
+
+            <div class="event-image">
+
+                <img
+                    src="${post.capa}"
+                    alt="${post.titulo}"
+                >
+
+            </div>
+
+
+            <div class="event-content">
+
+                <span class="event-category">
+                    ${post.categoria}
+                </span>
+
+
+                <h3>
+                    ${post.titulo}
+                </h3>
+
+
+                <p>
+                    ${post.descricao}
+                </p>
+
+
+                <div class="event-info">
+
+                    <span>
+                        <i class="fas fa-calendar"></i>
+
+                        ${data.toLocaleDateString("pt-BR")}
+
+                    </span>
+
+
+                    ${
+                        post.local
+                            ? `
+                                <span>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    ${post.local}
+                                </span>
+                            `
+                            : ""
+                    }
+
+                </div>
+
+
+                ${
+                    post.link
+                        ? `
+                            <a
+                                href="${post.link}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Ver detalhes
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        `
+                        : ""
+                }
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
 (function () {
     // Variáveis de referência no DOM
     const sections = document.querySelectorAll('section');
@@ -197,103 +344,6 @@ backToTopButton.addEventListener('click', () => {
     });
 
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    renderEventos();
-
-});
-
-// =========================================================================
-// EVENTOS
-// =========================================================================
-
-function renderEventos() {
-
-    
-    const container = document.getElementById("event-list");
-
-    if (!container) return;
-
-    container.innerHTML = "";
-
-    eventos.forEach(evento => {
-
-        
-        const card = document.createElement("div");
-
-        card.className = "event-card";
-
-        card.innerHTML = `
-        
-            <div class="event-image">
-
-                <img src="${evento.capa}" alt="${evento.titulo}">
-
-                <span class="event-category">
-                    ${evento.categoria}
-                </span>
-
-                <div class="event-date">
-
-                    <span class="event-day">${evento.dia}</span>
-
-                    <span class="event-month">${evento.mes}</span>
-
-                    <span class="event-year">${evento.ano}</span>
-
-                </div>
-
-            </div>
-
-            <div class="event-content">
-
-                <h3 class="event-title">
-                    ${evento.titulo}
-                </h3>
-
-                <p class="event-description">
-                    ${evento.descricao}
-                </p>
-
-                <div class="event-footer">
-
-                    <div class="event-location">
-
-                        <i class="fas fa-map-marker-alt"></i>
-
-                        ${evento.local}
-
-                    </div>
-
-                    <div class="event-button">
-
-                        Ver detalhes
-
-                        <i class="fas fa-arrow-right"></i>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        `;
-
-        card.addEventListener("click", () => {
-
-            abrirModal(evento);
-
-            // depois chamaremos:
-            // abrirModal(evento);
-
-        });
-
-        container.appendChild(card);
-
-    });
-
-}
 
 // =========================================================================
 // Modal EVENTOS
@@ -500,250 +550,3 @@ document.addEventListener("keydown", function(e){
     }
 
 });
-
-const STORAGE_KEY = "ecossistema_posts";
-
-const form = document.getElementById("post-form");
-const lista = document.getElementById("admin-post-list");
-const total = document.getElementById("total-posts");
-
-
-/* =========================================================
-   CARREGAR POSTS
-========================================================= */
-
-function carregarPosts() {
-
-    return JSON.parse(
-        localStorage.getItem(STORAGE_KEY)
-    ) || [];
-
-}
-
-
-/* =========================================================
-   SALVAR POSTS
-========================================================= */
-
-function salvarPosts(posts) {
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(posts)
-    );
-
-}
-
-
-/* =========================================================
-   CONVERTER IMAGEM
-========================================================= */
-
-function converterImagem(file) {
-
-    return new Promise((resolve, reject) => {
-
-        const reader = new FileReader();
-
-        reader.onload = () => {
-
-            resolve(reader.result);
-
-        };
-
-        reader.onerror = reject;
-
-        reader.readAsDataURL(file);
-
-    });
-
-}
-
-
-/* =========================================================
-   ADICIONAR POST
-========================================================= */
-
-form.addEventListener("submit", async function (event) {
-
-    event.preventDefault();
-
-
-    const tipo =
-        document.getElementById("tipo").value;
-
-    const titulo =
-        document.getElementById("titulo").value;
-
-    const data =
-        document.getElementById("data").value;
-
-    const local =
-        document.getElementById("local").value;
-
-    const categoria =
-        document.getElementById("categoria").value;
-
-    const descricao =
-        document.getElementById("descricao").value;
-
-    const arquivo =
-        document.getElementById("capa").files[0];
-
-
-    if (!arquivo) {
-
-        alert("Selecione uma imagem.");
-
-        return;
-
-    }
-
-
-    const imagem =
-        await converterImagem(arquivo);
-
-
-    const posts = carregarPosts();
-
-
-    const novoPost = {
-
-        id: Date.now(),
-
-        tipo,
-
-        titulo,
-
-        data,
-
-        local,
-
-        categoria,
-
-        descricao,
-
-        capa: imagem
-
-    };
-
-
-    posts.push(novoPost);
-
-
-    salvarPosts(posts);
-
-
-    form.reset();
-
-
-    renderizarPosts();
-
-
-    alert("Publicação adicionada com sucesso!");
-
-});
-
-
-/* =========================================================
-   RENDERIZAR
-========================================================= */
-
-function renderizarPosts() {
-
-    const posts = carregarPosts();
-
-
-    lista.innerHTML = "";
-
-
-    total.textContent = posts.length;
-
-
-    if (posts.length === 0) {
-
-        lista.innerHTML = `
-            <p style="color:#777;">
-                Nenhuma publicação cadastrada.
-            </p>
-        `;
-
-        return;
-
-    }
-
-
-    posts.forEach(post => {
-
-        const item =
-            document.createElement("div");
-
-
-        item.className = "admin-post";
-
-
-        item.innerHTML = `
-
-            <div class="admin-post-info">
-
-                <h3>
-                    ${post.titulo}
-                </h3>
-
-                <span>
-                    ${post.tipo} • ${post.categoria}
-                </span>
-
-            </div>
-
-            <button
-                class="delete-post"
-                onclick="excluirPost(${post.id})"
-            >
-
-                <i class="fas fa-trash"></i>
-
-            </button>
-
-        `;
-
-
-        lista.appendChild(item);
-
-    });
-
-}
-
-
-/* =========================================================
-   EXCLUIR
-========================================================= */
-
-function excluirPost(id) {
-
-    if (!confirm("Deseja excluir esta publicação?")) {
-
-        return;
-
-    }
-
-
-    let posts = carregarPosts();
-
-
-    posts = posts.filter(post => post.id !== id);
-
-
-    salvarPosts(posts);
-
-
-    renderizarPosts();
-
-}
-
-
-/* =========================================================
-   INICIAR
-========================================================= */
-
-renderizarPosts();
