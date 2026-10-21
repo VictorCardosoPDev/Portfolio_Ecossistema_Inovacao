@@ -2098,7 +2098,53 @@ footer {
     margin: 0 auto;
 }
 
+/* =========================================================
+   BOTÃO ÁREA ADMINISTRATIVA
+========================================================= */
 
+.dashboard-button {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 11px 17px;
+
+    background: #ffffff;
+    color: #087f3e;
+
+    border: 1px solid #dce9e1;
+    border-radius: 10px;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+    transition: all 0.25s ease;
+
+    z-index: 1000;
+}
+
+.dashboard-button i {
+    font-size: 0.75rem;
+}
+
+.dashboard-button:hover {
+    background: #087f3e;
+    color: #ffffff;
+
+    border-color: #087f3e;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(8, 127, 62, 0.2);
+}
 /* CARD */
 
 .event-card {
